@@ -23,8 +23,4 @@ Things you may want to cover:
 
 * ...
 実装機能リスト
-<<<<<<< HEAD
 https://docs.google.com/spreadsheets/d/1iqNG30lFw0RTH3N5x1K13TIDbPIfrVuehZyvAn4wk5Q/edit#gid=885378170
-=======
-https://docs.google.com/spreadsheets/d/1iqNG30lFw0RTH3N5x1K13TIDbPIfrVuehZyvAn4wk5Q/edit#gid=885378170
->>>>>>> origin/main
