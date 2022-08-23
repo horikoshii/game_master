@@ -32,4 +32,4 @@ https://docs.google.com/spreadsheets/d/1iqNG30lFw0RTH3N5x1K13TIDbPIfrVuehZyvAn4w
 
 ## 使用素材
 - ゲーム画像は使用禁止
-- 
+- 使用検討中です
