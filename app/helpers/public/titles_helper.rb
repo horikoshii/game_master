@@ -1,0 +1,2 @@
+module Public::TitlesHelper
+end
