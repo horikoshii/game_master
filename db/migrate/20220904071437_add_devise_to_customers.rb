@@ -4,7 +4,7 @@ class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
   def self.up
     create_table :customers do |t|
       ## Database authenticatable
-      #t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -35,6 +35,8 @@ class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
+      t.string :name
+      t.boolean :is_deleted, null: false, default: false
     end
 
     add_index :customers, :email,                unique: true
