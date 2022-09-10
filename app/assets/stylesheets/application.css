@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .bg-pl {
+   background-color: #00fff8
+ }

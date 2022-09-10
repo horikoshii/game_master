@@ -1,0 +1,25 @@
+<div class="container">
+  <h4>タイトル登録</h4>
+  <div style="text-align:center;">
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form_with model: @title, url: admin_titles_path,method: :post do |f| %>
+        <table class="table table-striped">
+          <tr>
+            <td>タイトル名</td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td>プラットフォーム</td>
+            <td><%= f.select :platform_id, options_from_collection_for_select(Platform.all, :id, :name) %></td>
+          </tr>
+
+          <tr>
+           <td><%= f.submit '新規登録' %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

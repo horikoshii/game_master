@@ -11,6 +11,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 root to: "homes#top"
 
+get "/admin", to: "admin/homes#top"
+
   resources :titles
   resources :customers
   resources :characters
@@ -21,6 +23,7 @@ root to: "homes#top"
   resources :bulletin_boards
 
   namespace :admin do
+    get "admin/top" => "titles#serch",as: "serch"
     resources :titles
     resources :customers
     resources :admins
