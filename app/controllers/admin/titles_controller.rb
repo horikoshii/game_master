@@ -24,6 +24,9 @@ class Admin::TitlesController < ApplicationController
   end
 
   def update
+    @title = Title.find(params[:id])
+    @title.update(title_params)
+    redirect_to admin_title_path
   end
 
   def serch

@@ -3932,7 +3932,7 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery@^3.6.1:
+jquery@^3.6, jquery@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.1.tgz#fab0408f8b45fc19f956205773b62b292c147a16"
   integrity sha512-opJeO4nCucVnsjiXOE+/PcCgYw9Gwpvs/a6B1LL/lQhwWwpbVEVYDZ1FokFr8PRc7ghYlrFPuyHuiiDNTQxmcw==
@@ -5686,6 +5686,13 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+
+raty-js@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/raty-js/-/raty-js-3.1.1.tgz#1de430414f88540f0ec95c796a65f436f038d9d3"
+  integrity sha512-6phgjho73we8PkUwAjba09xQ3nXiWwk8NE9NB1EXvAH2gErP3PNPls1rbXRWLZ4Y3RjibIDhO5dkYMC+6kdrDA==
+  dependencies:
+    jquery "^3.6"
 
 raw-body@2.5.1:
   version "2.5.1"

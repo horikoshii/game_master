@@ -6,11 +6,13 @@
      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
        <tbody>
-        <% @platforms.each do |platform| %>
-         <%= link_to(admin_serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
-         <strong> <%= platform.name %> </strong>
+        <div class=pl>
+         <% @platforms.each do |platform| %>
+          <%= link_to(admin_serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
+          <strong> <%= platform.name %> </strong>
+          <% end %>
          <% end %>
-        <% end %>
+        </div>
        </tbody>
       </li>
      </ul>
