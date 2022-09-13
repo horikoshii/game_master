@@ -17,3 +17,18 @@
  .bg-pl {
    background-color: #00fff8
  }
+
+ ul {
+    background: #ccc;
+    text-align: right;
+}
+ul li {
+    background: pink;
+    display: inline-block;
+    margin-left: 10px;
+}
+ul li a {
+    display: block;
+    width: 200px;
+    height: 50px;
+}
