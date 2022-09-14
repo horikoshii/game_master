@@ -13,14 +13,15 @@ root to: "homes#top"
 
 get "/admin", to: "admin/homes#top"
 
-  resources :titles
-  resources :customers
-  resources :characters
-  resources :cheats
-  resources :informations
-  resources :tags
-  resources :comments
-  resources :bulletin_boards
+
+   resources :titles
+   resources :customers
+   resources :characters
+   resources :cheats
+   resources :informations
+   resources :tags
+   resources :comments
+   resources :bulletin_boards
 
   namespace :admin do
     get "admin/top" => "titles#serch",as: "serch"

@@ -1,0 +1,6 @@
+ja:
+    enums:
+      character:
+        IFF_method:
+          enemy: "敵"
+          ally: "味方"

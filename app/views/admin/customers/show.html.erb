@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <tr>
+        <td class="user_image">
+          <% if @customer.image.attached? %>
+          <%= image_tag @customer.image, size: "200x200"  %>
+          <% else %>
+          <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+        </td>
+      </tr>
+    </div>
+    <div class="col-lg-8">
+      <tr>
+        <td><%= @customer.name %></td>
+        <td><%= @customer.id %></td>
+      </tr>
+    </div>
+  </div>
+</div>
