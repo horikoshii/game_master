@@ -1,0 +1,32 @@
+<div class="container">
+  <h4>キャラクター登録</h4>
+  <div style="text-align:center;">
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form_with model: @character, url: admin_characters_path,method: :patch do |f| %>
+        <table class="table table-striped">
+
+          <tr>
+            <p><%= f.radio_button :IFF_method, Character.IFF_methods.key(0) %>
+            <%= f.label :IFF_method, Character.IFF_methods_i18n[:enemy] %></p>
+            <p><%= f.radio_button :IFF_method, Character.IFF_methods.key(1) %>
+            <%= f.label :IFF_method, Character.IFF_methods_i18n[:ally]%></p>
+          </tr>
+          <tr>
+            <td>タイトル名</td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td>プラットフォーム</td>
+            <td><%= f.select :platform_id, options_from_collection_for_select(Platform.all, :id, :name) %></td>
+          </tr>
+
+          <tr>
+           <td><%= f.submit '更新' %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

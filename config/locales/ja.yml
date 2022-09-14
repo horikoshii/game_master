@@ -4,3 +4,11 @@ ja:
         IFF_method:
           enemy: "敵"
           ally: "味方"
+  
+ja:
+    enums:
+      information:
+        type_method:
+          intelligence: "最新情報"
+          new_character: "新キャラクター追加"
+          event: "イベント"

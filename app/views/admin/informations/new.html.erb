@@ -1,0 +1,39 @@
+<div class="container">
+  <h4>タイトル登録</h4>
+  <div style="text-align:center;">
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form_with model: @information, url: admin_informations_path,method: :post do |f| %>
+        <table class="table table-striped">
+          <tr>
+            <td>
+              <%= f.radio_button :type_method, Information.type_methods.key(0) %>
+              <%= f.label :type_method, Information.type_methods_i18n[:intelligence] %>
+            </td>
+            <td>
+              <%= f.radio_button :type_method, Information.type_methods.key(1) %>
+              <%= f.label :type_method, Information.type_methods_i18n[:new_character]%>
+            </td>
+            <td>
+              <%= f.radio_button :type_method, Information.type_methods.key(2) %>
+              <%= f.label :type_method, Information.type_methods_i18n[:event]%>
+            </td>
+          </tr>
+          <tr>
+            <td>タイトル名</td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td>詳細</td>
+            <td><%= f.text_area :information_detail %></td>
+          </tr>
+
+          <tr>
+           <td><%= f.submit '新規登録' %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
