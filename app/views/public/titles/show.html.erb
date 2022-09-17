@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>コメントする</h2>
+      <%= form_for [@title,@comment] do |f| %>
+      <%= f.text_area :comment_content %>
+      <%= f.hidden_field :title_id, value: @title.id %>
+      <%= f.submit "投稿" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>コメント一覧</h2>
+      <% @comments.each do |comment| %>
+      <%= comment.comment_content %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,8 @@ class CreateTitles < ActiveRecord::Migration[6.1]
       t.integer :tag_id
       t.string :name
       t.boolean :is_active
+      t.text :title_content
+      t.references :customer, foreign_key: true
 
       t.timestamps
     end

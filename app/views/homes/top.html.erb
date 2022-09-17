@@ -4,10 +4,12 @@
    <div class="navbar-brand p-1">
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
+         <% @platforms.each do |platform| %>
       <li class="nav-item">
-       <%= link_to(new_customer_registration_path,  class: 'nav-link text-white') do %>
-         <strong> 新規登録 </strong>
-       <% end %>
+          <%= link_to(serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
+          <strong> <%= platform.name %> </strong>
+          <% end %>
+         <% end %>
       </li>
      </ul>
     </div>
@@ -19,7 +21,13 @@
  <div class="row">
   <div class="col-lg-4">
     <table class="table table-striped">
-
+     <tr>
+      <td>
+       <% @titles.each do |title| %>
+       <p><%= link_to title.name, title_path(title.id) %></p>
+       <% end %>
+      </td>
+     </tr>
     </table>
   </div>
  </div>

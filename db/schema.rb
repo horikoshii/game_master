@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_060326) do
+ActiveRecord::Schema.define(version: 2022_09_17_093714) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2022_09_14_060326) do
     t.integer "status"
     t.string "skill"
     t.text "skill_detail"
-    t.integer "attribution"
+    t.integer "attribution_method"
     t.integer "evaluation"
     t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
@@ -91,13 +91,17 @@ ActiveRecord::Schema.define(version: 2022_09_14_060326) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "cheat_id"
+    t.text "comment_content"
+    t.integer "customer_id"
     t.integer "title_id"
+    t.integer "cheat_id"
     t.integer "information_id"
     t.integer "character_id"
     t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_comments_on_customer_id"
+    t.index ["title_id"], name: "index_comments_on_title_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -111,6 +115,15 @@ ActiveRecord::Schema.define(version: 2022_09_14_060326) do
     t.text "profile"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "cheat_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cheat_id"], name: "index_favorites_on_cheat_id"
+    t.index ["customer_id"], name: "index_favorites_on_customer_id"
   end
 
   create_table "information", force: :cascade do |t|
@@ -156,10 +169,18 @@ ActiveRecord::Schema.define(version: 2022_09_14_060326) do
     t.integer "tag_id"
     t.string "name"
     t.boolean "is_active"
+    t.text "title_content"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_titles_on_customer_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "customers"
+  add_foreign_key "comments", "titles"
+  add_foreign_key "favorites", "cheats"
+  add_foreign_key "favorites", "customers"
+  add_foreign_key "titles", "customers"
 end

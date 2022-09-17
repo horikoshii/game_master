@@ -7,22 +7,41 @@
         <table class="table table-striped">
 
           <tr>
-            <p><%= f.radio_button :IFF_method, Character.IFF_methods.key(0) %>
-            <%= f.label :IFF_method, Character.IFF_methods_i18n[:enemy] %></p>
-            <p><%= f.radio_button :IFF_method, Character.IFF_methods.key(1) %>
-            <%= f.label :IFF_method, Character.IFF_methods_i18n[:ally]%></p>
+            <td><%= f.radio_button :IFF_method, Character.iff_methods.key(0) %>
+            <%= f.label :IFF_method, Character.iff_methods_i18n[:enemy] %></td>
+            <td><%= f.radio_button :IFF_method, Character.iff_methods.key(1) %>
+            <%= f.label :IFF_method, Character.iff_methods_i18n[:ally]%></td>
           </tr>
           <tr>
-            <td>タイトル名</td>
+            <td>キャラクター名</td>
             <td><%= f.text_field :name %></td>
           </tr>
           <tr>
-            <td>プラットフォーム</td>
-            <td><%= f.select :platform_id, options_from_collection_for_select(Platform.all, :id, :name) %></td>
+            <td><h8>属性</h8></td>
+            <td>
+              <%= f.radio_button :attribution_method, Character.attribution_methods.key(0) %>
+              <%= f.label :attribution_method, Character.attribution_methods_i18n[:fire] %>
+            </td>
+            <td>
+              <%= f.radio_button :attribution_method, Character.attribution_methods.key(1) %>
+              <%= f.label :attribution_method, Character.attribution_methods_i18n[:water] %>
+            </td>
+            <td>
+              <%= f.radio_button :attribution_method, Character.attribution_methods.key(2) %>
+              <%= f.label :attribution_method, Character.attribution_methods_i18n[:nature] %>
+            </td>
+          </tr>
+          <tr>
+            <td>必殺技</td>
+            <td><%= f.text_field :skill %></td>
+          </tr>
+          <tr>
+            <td>必殺技 詳細</td>
+            <td><%= f.text_area :skill_detail %></td>
           </tr>
 
           <tr>
-           <td><%= f.submit '新規登録' %></td>
+           <td><%= f.submit '追加' %></td>
           </tr>
         </table>
         <% end %>

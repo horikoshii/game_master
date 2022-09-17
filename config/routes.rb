@@ -13,15 +13,21 @@ root to: "homes#top"
 
 get "/admin", to: "admin/homes#top"
 
-
-   resources :titles
+  scope module: :public do
+    get "homes/top" => "titles#serch",as: "serch"
+   resources :titles do
+     resources :comments, only: [:create]
+   end
    resources :customers
    resources :characters
-   resources :cheats
+   resources :cheats do
+    resources :favorites, only: [:create, :destroy]
+   end
    resources :informations
    resources :tags
    resources :comments
    resources :bulletin_boards
+  end
 
   namespace :admin do
     get "admin/top" => "titles#serch",as: "serch"

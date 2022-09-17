@@ -7,6 +7,7 @@ class Admin::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
+    @comments = @title.comments
   end
 
   def new
@@ -16,6 +17,7 @@ class Admin::TitlesController < ApplicationController
   def create
     @title = Title.new(title_params)
     @title.save
+    #binding.pry
     redirect_to admin_titles_path(@title.id)
   end
 
@@ -41,7 +43,7 @@ class Admin::TitlesController < ApplicationController
   private
 
   def title_params
-    params.require(:title).permit(:name, :platform_id)
+    params.require(:title).permit(:name, :platform_id,:title_content)
   end
 
 end

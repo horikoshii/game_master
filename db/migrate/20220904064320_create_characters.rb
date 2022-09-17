@@ -12,7 +12,7 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.integer :status
       t.string :skill
       t.text :skill_detail
-      t.integer :attribution
+      t.integer :attribution_method
       t.integer :evaluation
       t.boolean :is_active
 

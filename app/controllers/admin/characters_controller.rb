@@ -7,13 +7,13 @@ class Admin::CharactersController < ApplicationController
  def create
     @character = Character.new(character_params)
     @character.save
-    redirect_to admin_character_path
+    redirect_to admin_characters_path(@character.id)
  end
 
  private
 
   def character_params
-    params.require(:character).permit(:name, :skill, :skill_detail, :attribution, :IFF_method, :evaluation)
+    params.require(:character).permit(:name, :skill, :skill_detail, :attribution_method, :IFF_method)
   end
 
 end
