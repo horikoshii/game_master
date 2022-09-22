@@ -1,3 +1,78 @@
+<header class="p-1 mb-1 bg-info text-white">
+ <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+   <div class="navbar-brand p-1">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to(cheat_path,  class: 'nav-link text-white') do %>
+        <strong>攻略</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(information_path,  class: 'nav-link text-white') do %>
+        <strong>最新情報</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(character_path,  class: 'nav-link text-white') do %>
+        <strong>キャラクター</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(bulletin_boards_path,  class: 'nav-link text-white') do %>
+        <strong>掲示板</strong>
+        <% end %>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </nav>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <div class="col-lg-5">
+          <h4>最新情報</h4>
+          <tr>
+            <td>
+            </td>
+          </tr>
+        </div>
+        <div class="col-lg-5">
+          <h4>攻略一覧</h4>
+          <% @cheats.each do |cheat| %>
+          <tr>
+            <td><%= link_to cheat.name, admin_cheat_path %></td>
+          </tr>
+          <% end %>
+        </div>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <tr>
+          <h4>キャラクター一覧</h4>
+        </tr>
+        <tr>
+          <td>敵味方</td>
+          <td>名前</td>
+        </tr>
+        <% @characters.each do |character| %>
+        <tr>
+          <td><%= character.iff_method_i18n %></td>
+          <td><%= link_to character.name, admin_character_path(character.id) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-lg-12">

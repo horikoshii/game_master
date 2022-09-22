@@ -21,12 +21,15 @@ get "/admin", to: "admin/homes#top"
    resources :customers
    resources :characters
    resources :cheats do
+    resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]
    end
    resources :informations
    resources :tags
    resources :comments
-   resources :bulletin_boards
+   resources :bulletin_boards, only: %i[index new create show] do
+    resources :comments, only: %i[create], shallow: true
+   end 
   end
 
   namespace :admin do

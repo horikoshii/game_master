@@ -3,7 +3,7 @@
   <div style="text-align:center;">
     <div class="row">
       <div class="col-lg-12">
-        <%= form_with model: @cheat, url: admin_cheat_path,method: :patch do |f| %>
+        <%= form_with model: @cheat, url: admin_cheat_path ,method: :patch do |f| %>
         <table class="table table-striped">
           <tr>
             <td>攻略タイトル</td>
@@ -12,29 +12,41 @@
 
           <tr>
             <td>難易度</td>
-            <td></td>
+            <td>
+              <div id="evaluate_stars">
+                <%= f.hidden_field :evaluation ,:value => 'score' %>
+              </div>
+            </td>
           </tr>
 
           <tr>
             <td>ボスキャラクター名</td>
-            <td><%= f.text_field :character_id %></td>
+            <td><%= f.select :character_id, options_from_collection_for_select(@enemy, :id, :name) %></td>
           </tr>
 
           <tr>
             <td>攻略内容</td>
-            <td><%= f.text_field :cheat_detail %></td>
+            <td><%= f.text_area :cheat_detail %></td>
           </tr>
 
           <tr>
             <td>推奨キャラクター</td>
-            <td><%= f.text_field :character_id %></td>
+            <td><%= f.select :character_id, options_from_collection_for_select(@ally, :id, :name) %></td>
           </tr>
 
           <tr>
-           <td><%= f.submit '新規登録' %></td>
+           <td><%= f.submit '更新' %></td>
           </tr>
         </table>
         <% end %>
+        <script>
+         $('#evaluate_stars').raty({
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'cheat[evaluation]'
+          });
+        </script>
       </div>
     </div>
   </div>

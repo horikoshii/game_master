@@ -1,21 +1,43 @@
 <div class="container">
-  <h4>攻略詳細 </h4>
   <div style="text-align:center;">
     <div class="row">
       <div class="col-lg-12">
+        <div class="cheat">
+          <h4><%= @cheat.name %>詳細</h4>
+        </div>
         <table class="table table-striped">
-          
+          <tr>
+            <td>難易度</td>
+            <td>
+              <div id="evaluate_stars">
+              <%= @cheat.evaluation %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ボス名</td>
+            <td><%= @enemy.name %></td>
+          </tr>
+          <tr>
+            <td>攻略内容</td>
+            <td><%= @cheat.cheat_detail %></td>
+          </tr>
+          <tr>
+            <td>攻略推奨キャラクター</td>
+            <td><%= @ally.name %></td>
+          </tr>
         </table>
-        
+
         <script>
-          $('.movie-evaluation').raty({
+          $('#evaluate_stars').raty({
             readOnly: true,
             score: function() {
               return $(this).attr('data-score');
             },
             path: '/assets/'
-          
+
           });
+
         </script>
       </div>
     </div>

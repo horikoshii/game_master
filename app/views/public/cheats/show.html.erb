@@ -7,3 +7,24 @@
     <span>❤︎</span>
   <% end %>
 <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>コメントする</h2>
+      <%= form_with(model:[@cheat, @comment], method: :post) do |f| %>
+      <%= f.text_area :comment_content %>
+      <%= f.hidden_field :cheat_id, value: @cheat.id %>
+      <%= f.submit "コメントする" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>コメント一覧</h2>
+      <% @comments.each do |comment| %>
+      <%= comment.comment_content %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.integer :comment_id
       t.integer :information_id
       t.string :name
-      t.integer :IFF_method
+      t.integer :iff_method
       t.integer :status
       t.string :skill
       t.text :skill_detail

@@ -1,0 +1,20 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="bulletin_board-id-<%= bulletin_board.id %>">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">
+            <%= link_to bulletin_board.title, bulletin_board_path(bulletin_board.id) %>
+        </h4>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= bulletin_board.customer.name %>
+          </li>
+          <li class="list-inline-item">
+            <%= l bulletin_board.created_at, format: :long %>
+          </li>
+        </ul>
+        <p class="card-text"><%= bulletin_board.body %></p>
+      </div>
+    </div>
+  </div>
+</div>

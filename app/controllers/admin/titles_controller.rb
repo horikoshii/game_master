@@ -7,6 +7,8 @@ class Admin::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
+    @characters = Character.all
+    @cheats = Cheat.all
     @comments = @title.comments
   end
 

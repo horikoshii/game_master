@@ -54,8 +54,12 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
     t.integer "title_id"
     t.integer "comment_id"
     t.boolean "is_active"
+    t.string "title", null: false
+    t.text "body", null: false
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_bulletin_boards_on_customer_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -65,7 +69,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
     t.integer "comment_id"
     t.integer "information_id"
     t.string "name"
-    t.integer "IFF_method"
+    t.integer "iff_method"
     t.integer "status"
     t.string "skill"
     t.text "skill_detail"
@@ -82,24 +86,30 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
     t.integer "title_id"
     t.integer "comment_id"
     t.integer "information_id"
+    t.string "name"
     t.text "cheat_detail"
-    t.string "recommendation_character"
-    t.integer "difficulty"
+    t.float "evaluation", default: 0.0, null: false
+    t.text "post_content"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "evaluation"
+    t.index ["customer_id"], name: "index_cheats_on_customer_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment_content"
+    t.text "body", null: false
     t.integer "customer_id"
     t.integer "title_id"
     t.integer "cheat_id"
+    t.integer "bulletin_board_id"
     t.integer "information_id"
     t.integer "character_id"
     t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bulletin_board_id"], name: "index_comments_on_bulletin_board_id"
+    t.index ["cheat_id"], name: "index_comments_on_cheat_id"
     t.index ["customer_id"], name: "index_comments_on_customer_id"
     t.index ["title_id"], name: "index_comments_on_title_id"
   end
@@ -178,6 +188,10 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bulletin_boards", "customers"
+  add_foreign_key "cheats", "customers"
+  add_foreign_key "comments", "bulletin_boards"
+  add_foreign_key "comments", "cheats"
   add_foreign_key "comments", "customers"
   add_foreign_key "comments", "titles"
   add_foreign_key "favorites", "cheats"
