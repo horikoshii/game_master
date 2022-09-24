@@ -5,23 +5,18 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <%= link_to(new_admin_cheat_path,  class: 'nav-link text-white') do %>
+        <%= link_to(new_admin_title_cheat_path(@title),  class: 'nav-link text-white') do %>
         <strong>攻略追加</strong>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to(new_admin_information_path,  class: 'nav-link text-white') do %>
+        <%= link_to(new_admin_title_information_path(@title),  class: 'nav-link text-white') do %>
         <strong>最新情報追加</strong>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to(new_admin_character_path,  class: 'nav-link text-white') do %>
+        <%= link_to(new_admin_title_character_path(@title),  class: 'nav-link text-white') do %>
         <strong>キャラクター追加</strong>
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to(new_admin_cheat_path,  class: 'nav-link text-white') do %>
-        <strong>掲示板</strong>
         <% end %>
       </li>
      </ul>
@@ -36,7 +31,7 @@
     <div class="col-lg-12">
       <table class="table table-striped">
         <tr>
-          <td><h4>タイトル詳細</h4></td>
+          <td><h4><%= @title.name %></h4></td>
           <td>
             <%= link_to edit_admin_title_path do %>
             <i class="fa-solid fa-circle-plus"><span>edit</span></i>
@@ -47,23 +42,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-5">
       <table class="table table-striped">
-        <div class="col-lg-5">
-          <h4>最新情報</h4>
-          <tr>
-            <td>
-            </td>
-          </tr>
-        </div>
-        <div class="col-lg-5">
-          <h4>攻略一覧</h4>
-          <% @cheats.each do |cheat| %>
-          <tr>
-            <td><%= link_to cheat.name, admin_cheat_path %></td>
-          </tr>
-          <% end %>
-        </div>
+        <h4>最新情報</h4>
+        <% @informations.each do |information| %>
+        <tr>
+          <td><%= link_to information.name, admin_title_information_path(@title, information) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-lg-5">
+      <table class="table table-striped">
+        <h4>攻略一覧</h4>
+        <% @cheats.each do |cheat| %>
+        <tr>
+          <td><%= link_to cheat.name, admin_title_cheat_path(@title, cheat) %></td>
+        </tr>
+        <% end %>
       </table>
     </div>
   </div>
@@ -80,7 +76,7 @@
         <% @characters.each do |character| %>
         <tr>
           <td><%= character.iff_method_i18n %></td>
-          <td><%= link_to character.name, admin_character_path(character.id) %></td>
+          <td><%= link_to character.name, admin_title_character_path(@title, character.id) %></td>
         </tr>
         <% end %>
       </table>

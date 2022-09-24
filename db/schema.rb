@@ -81,7 +81,8 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
   end
 
   create_table "cheats", force: :cascade do |t|
-    t.integer "character_id"
+    t.integer "ally_id"
+    t.integer "enemy_id"
     t.integer "tag_id"
     t.integer "title_id"
     t.integer "comment_id"

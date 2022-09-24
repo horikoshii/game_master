@@ -1,26 +1,26 @@
 class Admin::InformationsController < ApplicationController
 
-  def index
-  end
-
   def new
-    @information = Information.new
+    @title = Title.find(params[:title_id])
+    @information = Information.new(title_id: @title)
   end
 
   def create
     @information = Information.new(information_params)
+    @information.title_id = params[:title_id]
     @information.save
-    redirect_to admin_information_path(@information.id)
+    redirect_to admin_title_information_path(title_id: @information.title_id, id: @information.id)
   end
 
   def edit
+    @title = Title.find(params[:title_id])
     @information = Information.find(params[:id])
   end
 
   def update
     @information = Information.find(params[:id])
     @information.update(information_params)
-    redirect_to admin_information_path
+    redirect_to admin_title_information_path
   end
 
   def show

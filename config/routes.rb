@@ -16,6 +16,7 @@ get "/admin", to: "admin/homes#top"
   scope module: :public do
     get "homes/top" => "titles#serch",as: "serch"
    resources :titles do
+       
      resources :comments, only: [:create]
    end
    resources :customers
@@ -29,20 +30,21 @@ get "/admin", to: "admin/homes#top"
    resources :comments
    resources :bulletin_boards, only: %i[index new create show] do
     resources :comments, only: %i[create], shallow: true
-   end 
+   end
   end
 
   namespace :admin do
     get "admin/top" => "titles#serch",as: "serch"
-    resources :titles
+    resources :titles do
+      resources :cheats
+      resources :characters
+      resources :informations
+      resources :bulletin_boards
+    end
     resources :customers
     resources :admins
     resources :platforms
-    resources :characters
-    resources :cheats
-    resources :informations
     resources :tags
     resources :comments
-    resources :bulletin_boards
   end
 end

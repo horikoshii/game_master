@@ -3,7 +3,7 @@
   <div style="text-align:center;">
     <div class="row">
       <div class="col-lg-12">
-        <%= form_with model: @cheat, url: admin_cheat_path ,method: :patch do |f| %>
+        <%= form_with model: @cheat, url: admin_title_cheat_path ,method: :patch do |f| %>
         <table class="table table-striped">
           <tr>
             <td>攻略タイトル</td>
@@ -21,7 +21,7 @@
 
           <tr>
             <td>ボスキャラクター名</td>
-            <td><%= f.select :character_id, options_from_collection_for_select(@enemy, :id, :name) %></td>
+            <td><%= f.select :enemy_id, options_from_collection_for_select(@enemy, :id, :name) %></td>
           </tr>
 
           <tr>
@@ -31,7 +31,7 @@
 
           <tr>
             <td>推奨キャラクター</td>
-            <td><%= f.select :character_id, options_from_collection_for_select(@ally, :id, :name) %></td>
+            <td><%= f.select :ally_id, options_from_collection_for_select(@ally, :id, :name) %></td>
           </tr>
 
           <tr>

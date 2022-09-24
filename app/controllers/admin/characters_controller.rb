@@ -1,13 +1,15 @@
 class Admin::CharactersController < ApplicationController
 
  def new
-     @character = Character.new
+  @title = Title.find(params[:title_id])
+     @character = Character.new(title_id: @title)
  end
 
  def create
     @character = Character.new(character_params)
+    @character.title_id = params[:title_id]
     @character.save
-    redirect_to admin_character_path(@character.id)
+    redirect_to admin_title_character_path(title_id: @character.title_id, id: @character.id)
  end
 
  def show
@@ -15,13 +17,14 @@ class Admin::CharactersController < ApplicationController
  end
 
  def edit
+  @title = Title.find(params[:title_id])
   @character = Character.find(params[:id])
  end
 
  def update
   @character = Character.find(params[:id])
   @character.update(character_params)
-  redirect_to admin_character_path(@character.id)
+  redirect_to admin_title_character_path(@character.id)
  end
 
  private
