@@ -1,0 +1,11 @@
+<div class="box" align="center">
+<% if @range == "Character" %>
+    <% @characters.each do |character| %>
+        <%= character.name %>
+    <% end %>
+<% else %>
+    <% @cheats.each do |cheat| %>
+        <%= cheat.name %>
+    <% end %>
+<% end %>
+</div>

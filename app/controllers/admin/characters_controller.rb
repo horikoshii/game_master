@@ -1,5 +1,10 @@
 class Admin::CharactersController < ApplicationController
 
+ def index
+  @title = Title.find(params[:title_id])
+  @characters = Character.search(params[:search])
+ end
+
  def new
   @title = Title.find(params[:title_id])
      @character = Character.new(title_id: @title)

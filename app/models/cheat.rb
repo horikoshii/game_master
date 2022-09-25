@@ -15,4 +15,12 @@ class Cheat < ApplicationRecord
    validates :evaluation, numericality: {
    less_than_or_equal_to: 5,
     greater_than_or_equal_to: 1}, presence: true
+
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @cheat = Cheat.where("name LIKE ?", "#{words}")
+    else
+      @cheat = Cheat.where("name LIKE ?", "%#{words}%")
+    end
+  end
 end

@@ -2,11 +2,9 @@ class Public::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
-    @cheat = Cheat.find_by(params[:id])
-    @cheats = Cheat.all
-    @character = Character.find(params[:id])
-    @characters = Character.all
-    @information = Information.find_by(params[:id])
+    @cheats = @title.cheats
+    @characters = @title.characters
+    @informations = @title.informations
     @comments = @title.comments
     @comment = Comment.new
   end

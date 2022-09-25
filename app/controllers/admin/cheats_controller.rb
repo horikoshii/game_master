@@ -1,5 +1,11 @@
 class Admin::CheatsController < ApplicationController
 
+
+ def index
+  @title = Title.find(params[:title_id])
+  @cheats = Cheat.search(params[:search])
+ end
+
  def new
   @title = Title.find(params[:title_id])
      @cheat = Cheat.new(title_id: @title)

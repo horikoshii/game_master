@@ -1,3 +1,30 @@
 // Place all the styles related to the admin/characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.float-right{
+  float: right;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+}
+
+.box {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: #f0f7ff;
+    border: dashed 2px #5b8bd0;
+}
+
+.ch_1{
+  display: table-cell;
+　vertical-align: middle;
+　width:100px;
+  height:100px;
+}
+
+.ch_2{
+  display: table-cell;
+　vertical-align: middle;
+　width:100px;
+  height:100px;
+}

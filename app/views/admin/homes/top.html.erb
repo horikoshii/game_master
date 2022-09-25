@@ -19,5 +19,14 @@
 </header>
 
 <body>
-  <h1>コメント管理</h1>
+ <div class="admin_comments">
+  <h4>コメント管理</h4>
+  <div class="comments">
+   <%= @comments.each do |comment| %>
+   <div>
+    <%= comment.body %>
+   </div>
+   <% end %>
+  </div>
+ </div>
 </body>

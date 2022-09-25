@@ -12,12 +12,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 root to: "homes#top"
 
 get "/admin", to: "admin/homes#top"
+get 'finder' => "finders#finder"
 
   scope module: :public do
     get "homes/top" => "titles#serch",as: "serch"
    resources :titles do
-       
-     resources :comments, only: [:create]
+      resources :comments, only: [:create]
    end
    resources :customers
    resources :characters

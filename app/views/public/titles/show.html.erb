@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <%= link_to(cheat_path,  class: 'nav-link text-white') do %>
+        <%= link_to( cheat_path,  class: 'nav-link text-white') do %>
         <strong>攻略</strong>
         <% end %>
       </li>
@@ -33,23 +33,24 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-5">
       <table class="table table-striped">
-        <div class="col-lg-5">
-          <h4>最新情報</h4>
-          <tr>
-            <td>
-            </td>
-          </tr>
-        </div>
-        <div class="col-lg-5">
-          <h4>攻略一覧</h4>
-          <% @cheats.each do |cheat| %>
-          <tr>
-            <td><%= link_to cheat.name, admin_cheat_path %></td>
-          </tr>
-          <% end %>
-        </div>
+        <h4>最新情報</h4>
+        <% @informations.each do |information| %>
+        <tr>
+          <td><%= link_to information.name, information_path %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-lg-5">
+      <table class="table table-striped">
+        <h4>攻略一覧</h4>
+        <% @cheats.each do |cheat| %>
+        <tr>
+          <td><%= link_to cheat.name, cheat_path %></td>
+        </tr>
+        <% end %>
       </table>
     </div>
   </div>
@@ -66,7 +67,7 @@
         <% @characters.each do |character| %>
         <tr>
           <td><%= character.iff_method_i18n %></td>
-          <td><%= link_to character.name, admin_character_path(character.id) %></td>
+          <td><%= link_to character.name, character_path(character.id) %></td>
         </tr>
         <% end %>
       </table>

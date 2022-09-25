@@ -20,6 +20,14 @@
         <% end %>
       </li>
      </ul>
+     <div class="form">
+       <%= form_tag(admin_title_characters_path(@title), :method => "get") do %>
+       <%= form_tag(admin_title_cheats_path(@title), :method => "get") do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search" ,:name => nil ,class: "button is-info"%>
+      <% end %>
+      <% end %>
+     </div>
     </div>
    </div>
   </div>

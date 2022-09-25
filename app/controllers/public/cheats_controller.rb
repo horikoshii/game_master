@@ -1,7 +1,7 @@
 class Public::CheatsController < ApplicationController
 
   def show
-    @cheat = Cheat.find_by(params[:id])
+    @cheat = Cheat.find(params[:id])
     @comments = @cheat.comments
     @comment = Comment.new
   end
