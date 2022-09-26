@@ -1,10 +1,11 @@
-<% if @cheat.favorite?(current_customer) %>
+<%= render 'public/titles/title', { title: @title } %>
+<% if @cheat.favorited?(current_customer) %>
   <%= link_to cheat_favorite_path(@cheat.id), method: :delete do %>
-    <span style="color:red;">❤︎</span>
+    <span>❤︎</span>
   <% end %>
 <% else %>
   <%= link_to cheat_favorites_path(@cheat.id), method: :post do %>
-    <span>❤︎</span>
+    <span style="color:red;">❤︎</span>
   <% end %>
 <% end %>
 

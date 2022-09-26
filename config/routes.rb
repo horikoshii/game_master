@@ -20,7 +20,9 @@ get 'finder' => "finders#finder"
       resources :comments, only: [:create]
    end
    resources :customers
-   resources :characters
+   resources :characters do
+      resources :comments, only: [:create]
+   end
    resources :cheats do
     resources :comments, only: [:create]
     resources :favorites, only: [:create, :destroy]

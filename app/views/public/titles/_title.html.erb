@@ -1,0 +1,37 @@
+<header class="p-1 mb-1 bg-warning text-white">
+  <div class="title" align="text-align-center">
+    <h1><%= link_to @title.name, title_path(@title.id) %></h1>
+  </div>
+</header>
+<header class="p-1 mb-1 bg-info text-white">
+ <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+   <div class="navbar-brand p-1">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to( cheat_path,  class: 'nav-link text-white') do %>
+        <strong>攻略</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(information_path,  class: 'nav-link text-white') do %>
+        <strong>最新情報</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(character_path,  class: 'nav-link text-white') do %>
+        <strong>キャラクター</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(bulletin_boards_path,  class: 'nav-link text-white') do %>
+        <strong>掲示板</strong>
+        <% end %>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </nav>
+</header>
