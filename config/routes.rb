@@ -16,6 +16,9 @@ get 'finder' => "finders#finder"
 
   scope module: :public do
     get "homes/top" => "titles#serch",as: "serch"
+    get "customers/my_page" => "customers#show", as: "my_page"
+    get "customers/unsubscribe" => "customers#unsubscribe"
+    patch "customers/withdraw" => "customers#withdraw"
    resources :titles do
       resources :comments, only: [:create]
    end

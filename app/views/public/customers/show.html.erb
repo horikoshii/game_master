@@ -12,13 +12,15 @@
       </tr>
     </div>
     <div class="my_page">
-        <div class="label">ユーザーID</div>
-        <div class="label"><%= @customer.id %></div>
+        <div class="label">ID:<%= @customer.id %></div>
     </div>
     <div class="my_page">
-        <div class="label">ユーザーネーム</div>
         <div class="label"><%= @customer.name %></div>
     </div>
+    <div class="my_page">
+        <div class="label"><%= button_to "編集", edit_customer_path(@customer.id),method: :get %></div>
+    </div>
+
       <tr>
         <td><%= @customer.profile %></td>
       </tr>

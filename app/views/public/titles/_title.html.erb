@@ -10,23 +10,28 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <%= link_to( cheat_path,  class: 'nav-link text-white') do %>
+        <%= link_to(cheats_path,  class: 'nav-link text-white') do %>
         <strong>攻略</strong>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to(information_path,  class: 'nav-link text-white') do %>
+        <%= link_to(informations_path,  class: 'nav-link text-white') do %>
         <strong>最新情報</strong>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to(character_path,  class: 'nav-link text-white') do %>
+        <%= link_to(characters_path,  class: 'nav-link text-white') do %>
         <strong>キャラクター</strong>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to(bulletin_boards_path,  class: 'nav-link text-white') do %>
         <strong>掲示板</strong>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to(my_page_path,  class: 'nav-link text-white') do %>
+        <strong>マイページ</strong>
         <% end %>
       </li>
      </ul>

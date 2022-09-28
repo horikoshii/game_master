@@ -35,7 +35,7 @@ class Admin::CharactersController < ApplicationController
  private
 
   def character_params
-    params.require(:character).permit(:name, :skill, :skill_detail, :attribution_method, :iff_method)
+    params.require(:character).permit(:name, :skill, :skill_detail, :attribution_method, :iff_method, tag_ids: [])
   end
 
 end

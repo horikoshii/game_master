@@ -1,10 +1,12 @@
 class Public::BulletinBoardsController < ApplicationController
 
   def index
+    @title = Title.find(params[:id])
     @bulletin_boards = BulletinBoard.all.includes(:customer).order(created_at: :desc)
   end
 
   def new
+    @title = Title.find(params[:id])
     @bulletin_board = BulletinBoard.new
   end
 
@@ -20,6 +22,7 @@ class Public::BulletinBoardsController < ApplicationController
   end
 
   def show
+    @title = Title.find(params[:id])
     @bulletin_board = BulletinBoard.find(params[:id])
     @comment = Comment.new
     #byebug

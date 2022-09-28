@@ -23,8 +23,14 @@
   <h4>コメント管理</h4>
   <div class="comments">
    <%= @comments.each do |comment| %>
-   <div>
-    <%= comment.body %>
+   <div class="comment">
+    <%= comment.customer_id.nil? ? '無名のプレーヤー' : comment.customer.name %>
+    <%= comment.created_at %>
+    <div class="comme"><%= comment.body %>
+    <% if comment.is_valid %>
+     <%= link_to "削除",admin_comment_path(comment.id), method: :delete %>
+    <% end %>
+    </div>
    </div>
    <% end %>
   </div>

@@ -6,6 +6,12 @@ class Admin::HomesController < ApplicationController
     @titles = Title.all
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.update(is_valid: false)
+    redirect_to admin_path
+  end
+
   def serch
     @platforms = Platform.all
     @titles = Title.all

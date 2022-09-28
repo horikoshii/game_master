@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_093714) do
+ActiveRecord::Schema.define(version: 2022_09_28_123214) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
     t.index ["customer_id"], name: "index_bulletin_boards_on_customer_id"
   end
 
+  create_table "character_tags", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_tags_on_character_id"
+    t.index ["tag_id"], name: "index_character_tags_on_tag_id"
+  end
+
   create_table "characters", force: :cascade do |t|
     t.integer "cheat_id"
     t.integer "tag_id"
@@ -109,6 +118,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
     t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_valid", default: true, null: false
     t.index ["bulletin_board_id"], name: "index_comments_on_bulletin_board_id"
     t.index ["cheat_id"], name: "index_comments_on_cheat_id"
     t.index ["customer_id"], name: "index_comments_on_customer_id"
@@ -161,6 +171,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
   end
 
   create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.integer "cheat_id"
     t.integer "title_id"
     t.integer "information_id"
@@ -190,6 +201,8 @@ ActiveRecord::Schema.define(version: 2022_09_17_093714) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bulletin_boards", "customers"
+  add_foreign_key "character_tags", "characters"
+  add_foreign_key "character_tags", "tags"
   add_foreign_key "cheats", "customers"
   add_foreign_key "comments", "bulletin_boards"
   add_foreign_key "comments", "cheats"

@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :customer
+  belongs_to :customer,optional: true
   belongs_to :title,optional: true
   belongs_to :cheat,optional: true
   belongs_to :character,optional: true

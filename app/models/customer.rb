@@ -1,9 +1,4 @@
 class Customer < ApplicationRecord
-
-  def own?(object)
-    self.id == object.customer_id
-  end
-
   has_one_attached :image
 
   #has_many :titles, dependent: :destroy

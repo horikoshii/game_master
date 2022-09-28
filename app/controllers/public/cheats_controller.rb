@@ -1,7 +1,12 @@
 class Public::CheatsController < ApplicationController
 
   def show
+    @title = Title.find(params[:id])
     @cheat = Cheat.find(params[:id])
+    ally_id = @cheat.ally_id
+    enemy_id = @cheat.enemy_id
+    @ally = Character.find(ally_id)
+    @enemy = Character.find(enemy_id)
     @comments = @cheat.comments
     @comment = Comment.new
   end

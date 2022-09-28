@@ -1,3 +1,21 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.my_page{
+  display: inline-block;
+  width:200px;
+  height:100px;
+  margin:auto;
+}
+
+.label{
+  width:200px;
+  height:100px;
+  margin:50px;
+  padding:40px;
+}
+
+.set{
+  padding:10px;
+}

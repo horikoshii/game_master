@@ -9,3 +9,9 @@ Admin.create!(
   email: "a@a",
   password:"aaaaaa"
   )
+
+Tag.create([
+    { name: '火' },
+    { name: '水' },
+    { name: '木'}
+    ])
