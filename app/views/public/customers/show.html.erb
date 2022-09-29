@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-2">
       <tr>
         <td class="user_image">
           <% if @customer.image.attached? %>
@@ -11,28 +11,33 @@
         </td>
       </tr>
     </div>
-    <div class="my_page">
+    <div class="col-lg-4">
+     <div class="my_page">
         <div class="label">ID:<%= @customer.id %></div>
-    </div>
-    <div class="my_page">
+     </div>
+     <div class="my_page">
         <div class="label"><%= @customer.name %></div>
-    </div>
-    <div class="my_page">
-        <div class="label"><%= button_to "編集", edit_customer_path(@customer.id),method: :get %></div>
-    </div>
-
-      <tr>
-        <td><%= @customer.profile %></td>
-      </tr>
+     </div>
+     <div class="my_page">
+        <div class="label2">
+          <div class="bt"><%= button_to "編集", edit_customer_path(@customer.id),method: :get %></div>
+          <div class="bt"><%= button_to "いいね一覧", cheat_favorites_path(@customer.id),method: :get %></div>
+        </div>
+     </div>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <tr>
-        <td>
-          コメント一覧
-        </td>
-      </tr>
+      <div class="profile_box">
+        <h5>自己紹介</h5>
+        <div class="profile"><%= @customer.profile %></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h4>コメント履歴</h4>
+    <div class="col-lg-12">
+      <%= render 'public/comments/comments', { comments: @comments } %>
     </div>
   </div>
 </div>

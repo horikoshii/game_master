@@ -1,14 +1,13 @@
 class Public::CharactersController < ApplicationController
 
 
-  #def index
-    #@character = Character.find(params[:id])
-    #@characters = params[:tag_id].present? ? Tag.find(params[:tag_id]).characters : Character.all
-  #end
+  def index
+    @characters = Character.all
+  end
 
   def show
-    @title = Title.find(params[:id])
     @character = Character.find(params[:id])
+    @title = Title.find(params[:id])
     @comments = @character.comments
     @comment = Comment.new
   end

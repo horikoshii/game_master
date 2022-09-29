@@ -1,0 +1,10 @@
+<div class="box" align="center">
+  <h4>攻略一覧</h4>
+  <div>
+    <% @cheats.each do |cheat| %>
+    <div class="box">
+      <%= link_to cheat.name, cheat_path(cheat.id) %>
+    </div>
+    <% end %>
+  </div>
+</div>

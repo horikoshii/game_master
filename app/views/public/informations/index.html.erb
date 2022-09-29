@@ -1,0 +1,6 @@
+<div class="informations">
+  <h4>最新情報</h4>
+  <% @informations.each do |information| %>
+    <div class="information"><%= link_to information.name, information_path(information.id) %></div>
+  <% end %>
+</div>

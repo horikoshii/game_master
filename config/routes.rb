@@ -20,21 +20,23 @@ get 'finder' => "finders#finder"
     get "customers/unsubscribe" => "customers#unsubscribe"
     patch "customers/withdraw" => "customers#withdraw"
    resources :titles do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
    end
-   resources :customers
+   resources :customers, only: [:edit, :show, :unsubscribe,:withdraw] do
+       resources :comments, only: [:create, :destroy]
+   end
    resources :characters do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
    end
    resources :cheats do
-    resources :comments, only: [:create]
-    resources :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
+    resources :favorites, only: [:index,:create, :destroy]
    end
    resources :informations
    resources :tags
    resources :comments
-   resources :bulletin_boards, only: %i[index new create show] do
-    resources :comments, only: %i[create], shallow: true
+   resources :bulletin_boards, only: %i[index new create show destroy] do
+    resources :comments, only: %i[create destroy], shallow: true
    end
   end
 

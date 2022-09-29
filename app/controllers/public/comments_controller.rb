@@ -3,7 +3,15 @@ class Public::CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     # comment = current_customer.comments.build(comment_params)
+    #binding.pry
+    comment.customer_id = current_customer.id
     comment.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
     redirect_back(fallback_location: root_path)
   end
 

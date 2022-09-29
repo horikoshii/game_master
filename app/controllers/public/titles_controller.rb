@@ -1,5 +1,5 @@
 class Public::TitlesController < ApplicationController
-
+  
   def show
     @title = Title.find(params[:id])
     @cheats = @title.cheats
@@ -7,6 +7,15 @@ class Public::TitlesController < ApplicationController
     @informations = @title.informations
     @comments = @title.comments
     @comment = Comment.new
+  end
+
+  def serch
+    @platforms = Platform.all
+    @titles = Title.all
+    if params[:platform_id]
+      @platform = Platform.find(params[:platform_id])
+      @titles = @platform.titles
+    end
   end
 
   def create

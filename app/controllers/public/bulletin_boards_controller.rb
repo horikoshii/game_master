@@ -1,7 +1,6 @@
 class Public::BulletinBoardsController < ApplicationController
 
   def index
-    @title = Title.find(params[:id])
     @bulletin_boards = BulletinBoard.all.includes(:customer).order(created_at: :desc)
   end
 

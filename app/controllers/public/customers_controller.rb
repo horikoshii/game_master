@@ -2,6 +2,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer=current_customer
+    @comments = current_customer.comments.all
   end
 
   def edit
@@ -28,6 +29,6 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name,)
+    params.require(:customer).permit(:name,:profile,:image)
   end
 end

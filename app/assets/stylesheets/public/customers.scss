@@ -4,18 +4,64 @@
 
 .my_page{
   display: inline-block;
-  width:200px;
-  height:100px;
-  margin:auto;
+  width:50px;
 }
 
 .label{
-  width:200px;
-  height:100px;
   margin:50px;
-  padding:40px;
+}
+
+.label2{
+  display: inline-table;
+  margin: 60px;
+}
+
+.bt{
+  margin:10px;
+}
+
+.user_image{
+  margin:50px;
+}
+
+input#customer_image{
+  margin:50px;
+}
+
+.edit{
+  margin-top:50px;
 }
 
 .set{
+  margin-top:50px;
   padding:10px;
+  width:100px;
+}
+
+.set1{
+  padding:10px;
+  width:100px;
+}
+
+
+.profile_box{
+  margin:50px;
+}
+
+.profile{
+  border: solid;
+  border-radius: 8px;
+  width: 600px;
+  height: 40px;
+  padding: 100px;
+}
+
+.container0{
+  text-align: center;
+    border: solid;
+    border-radius: 35px;
+    width: 775px;
+    height: 320px;
+    margin: auto;
+    padding: 50px;
 }

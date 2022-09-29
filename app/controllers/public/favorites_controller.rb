@@ -1,5 +1,9 @@
 class Public::FavoritesController < ApplicationController
 
+  def index
+    @favorites = current_customer.favorites.all
+  end
+
   def create
     @cheat_favorite = Favorite.new(customer_id: current_customer.id, cheat_id: params[:cheat_id])
     @cheat_favorite.save

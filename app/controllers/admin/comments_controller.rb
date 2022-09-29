@@ -12,8 +12,13 @@ class Admin::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.update!(is_valid: false)
-    redirect_to admin_path
+    
+    if @comment.destroy
+      redirect_to admin_path, notice: '管理者によって削除されました'
+      
+    else
+      render "admin/homes/top"
+    end
   end
 
   private

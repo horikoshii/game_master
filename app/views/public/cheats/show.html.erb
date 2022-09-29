@@ -44,13 +44,8 @@
         </script>
       </div>
     </div>
-  </div>
-  <%= render 'public/comments/form_character', { character: @character, comment: @comment } %>
 
-  <%= render 'public/comments/comments', { comments: @comments } %>
-</div>
-
-<span id="favorite">
+    <span id="favorite">
       <a href="#">
         <% if @cheat.favorited?(current_customer) %>
          <%= link_to cheat_favorite_path(@cheat.id), method: :delete do %>
@@ -62,4 +57,13 @@
          <% end %>
         <% end %>
       </a>
-</span>
+    </span>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/script.js"></script>
+  </div>
+  <%= render 'public/comments/form_character', { character: @character, comment: @comment } %>
+
+  <%= render 'public/comments/comments', { comments: @comments } %>
+</div>
