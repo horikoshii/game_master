@@ -18,6 +18,7 @@ class Admin::CharactersController < ApplicationController
  end
 
  def show
+  @title = Title.find(params[:title_id])
   @character = Character.find(params[:id])
  end
 
@@ -29,7 +30,7 @@ class Admin::CharactersController < ApplicationController
  def update
   @character = Character.find(params[:id])
   @character.update(character_params)
-  redirect_to admin_title_character_path(@character.id)
+  redirect_to admin_title_character_path
  end
 
  private

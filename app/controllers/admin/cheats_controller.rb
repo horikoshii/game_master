@@ -21,6 +21,7 @@ class Admin::CheatsController < ApplicationController
  end
 
  def show
+  @title = Title.find(params[:title_id])
   @cheat = Cheat.find(params[:id])
   #@character = Character.find(params[:id])
 
@@ -40,9 +41,10 @@ class Admin::CheatsController < ApplicationController
  end
 
  def update
+  @title = Title.find(params[:title_id])
   @cheat = Cheat.find(params[:id])
   @cheat.update(cheat_params)
-  redirect_to admin_title_cheat_path(@cheat.id)
+  redirect_to admin_title_cheat_path
  end
 
  private

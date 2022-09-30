@@ -1,6 +1,6 @@
 <header class="p-1 mb-1 bg-warning text-white">
   <div class="title" align="text-align-center">
-    <h1><%= link_to @title.name, title_path(@title.id) %></h1>
+    <h1><%= link_to @title.name, admin_title_path(@title.id) %></h1>
   </div>
 </header>
 <header class="p-1 mb-1 bg-info text-white">
@@ -10,18 +10,18 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <%= link_to(cheats_path,  class: 'nav-link text-white') do %>
-        <strong>攻略</strong>
+        <%= link_to(new_admin_title_cheat_path(@title),  class: 'nav-link text-white') do %>
+        <strong>攻略追加</strong>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to(informations_path,  class: 'nav-link text-white') do %>
-        <strong>最新情報</strong>
+        <%= link_to(new_admin_title_information_path(@title),  class: 'nav-link text-white') do %>
+        <strong>最新情報追加</strong>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to(characters_path,  class: 'nav-link text-white') do %>
-        <strong>キャラクター</strong>
+        <%= link_to(new_admin_title_character_path(@title),  class: 'nav-link text-white') do %>
+        <strong>キャラクター追加</strong>
         <% end %>
       </li>
       <li class="nav-item">

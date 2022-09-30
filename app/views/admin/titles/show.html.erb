@@ -1,24 +1,4 @@
-<header class="p-1 mb-1 bg-info text-white">
- <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container">
-   <div class="navbar-brand p-1">
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <%= link_to(new_admin_title_cheat_path(@title),  class: 'nav-link text-white') do %>
-        <strong>攻略追加</strong>
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to(new_admin_title_information_path(@title),  class: 'nav-link text-white') do %>
-        <strong>最新情報追加</strong>
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to(new_admin_title_character_path(@title),  class: 'nav-link text-white') do %>
-        <strong>キャラクター追加</strong>
-        <% end %>
-      </li>
+<%= render 'admin/titles/title', { title: @title } %>
      </ul>
      <div class="form">
        <%= form_tag(admin_title_characters_path(@title), :method => "get") do %>

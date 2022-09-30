@@ -24,6 +24,7 @@ class Admin::InformationsController < ApplicationController
   end
 
   def show
+    @title = Title.find(params[:title_id])
     @information = Information.find(params[:id])
   end
 

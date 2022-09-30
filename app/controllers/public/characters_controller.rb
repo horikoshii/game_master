@@ -2,7 +2,8 @@ class Public::CharactersController < ApplicationController
 
 
   def index
-    @characters = Character.all
+    @title = Title.find(params[:id])
+    @characters = @title.characters
   end
 
   def show
