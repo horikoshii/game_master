@@ -1,0 +1,10 @@
+<div class="box" align="center">
+  <h4>いいね一覧</h4>
+  <div>
+    <% @favorites.each do |favorite| %>
+    <div class="box">
+      <%= link_to favorite.cheat.name, title_cheat_path(title_id: favorite.cheat.title.id, id: favorite.cheat.id) %>
+    </div>
+    <% end %>
+  </div>
+</div>

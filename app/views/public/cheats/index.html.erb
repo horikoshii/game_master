@@ -1,9 +1,10 @@
+<%= render 'public/titles/title', { title: @title } %>
 <div class="box" align="center">
   <h4>攻略一覧</h4>
   <div>
     <% @cheats.each do |cheat| %>
     <div class="box">
-      <%= link_to cheat.name, title_cheat_path(@title) %>
+      <%= link_to cheat.name, title_cheat_path(title_id: @title.id, id: cheat.id) %>
     </div>
     <% end %>
   </div>

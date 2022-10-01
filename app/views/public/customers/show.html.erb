@@ -21,7 +21,7 @@
      <div class="my_page">
         <div class="label2">
           <div class="bt"><%= button_to "編集", edit_customer_path(@customer.id),method: :get %></div>
-          <div class="bt"><%= button_to "いいね一覧", cheat_favorites_path(@customer.id),method: :get %></div>
+          <div class="bt"><%= button_to "いいね一覧", my_favorites_customer_cheats_path(customer_id: @customer.id),method: :get %></div>
         </div>
      </div>
     </div>

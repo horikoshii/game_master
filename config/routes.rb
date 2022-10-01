@@ -21,36 +21,39 @@ get 'finder' => "finders#finder"
     patch "customers/withdraw" => "customers#withdraw"
    resources :titles do
       resources :comments, only: [:create, :destroy]
+      resources :cheats, only: [:index, :show] do
+         resources :comments, only: [:create, :destroy]
+         resources :favorites, only: [:index,:create, :destroy]
+      end
+      resources :characters, only: [:index, :show] do
+         resources :comments, only: [:create, :destroy]
+      end
+      resources :informations, only: [:index, :show]
+      resources :bulletin_boards, only: %i[index new create show destroy] do
+       resources :comments, only: %i[create destroy], shallow: true
+      end
    end
-   resources :customers, only: [:edit, :show, :unsubscribe,:withdraw] do
+   resources :customers, only: [:edit, :show, :update,:unsubscribe,:withdraw] do
        resources :comments, only: [:create, :destroy]
+       resources :cheats, only: [:index, :show] do
+         resources :favorites, only: [:create, :destroy]
+         get "favorites" => "favorites#index",on: :collection, as: "my_favorites"
+      end
    end
-   resources :characters do
-      resources :comments, only: [:create, :destroy]
-   end
-   resources :cheats do
-    resources :comments, only: [:create, :destroy]
-    resources :favorites, only: [:index,:create, :destroy]
-   end
-   resources :informations
    resources :tags
-   resources :comments
-   resources :bulletin_boards, only: %i[index new create show destroy] do
-    resources :comments, only: %i[create destroy], shallow: true
-   end
   end
 
   namespace :admin do
     get "admin/top" => "titles#serch",as: "serch"
     resources :titles do
-      resources :cheats
-      resources :characters
-      resources :informations
-      resources :bulletin_boards
+      resources :cheats, only: [:index,:new,:create,:edit,:update,:show]
+      resources :characters, only: [:index,:new,:create,:edit,:update,:show]
+      resources :informations, only: [:index,:new,:create,:edit,:update,:show]
+      resources :bulletin_boards, only: [:index,:show]
     end
-    resources :customers
+    resources :customers, only: [:index,:show]
     resources :admins
-    resources :platforms
+    resources :platforms, only: [:new,:create,:edit,:update]
     resources :tags
     resources :comments
   end

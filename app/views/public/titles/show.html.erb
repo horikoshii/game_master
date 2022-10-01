@@ -7,7 +7,7 @@
         <h4>最新情報</h4>
         <% @informations.each do |information| %>
         <tr>
-          <td><%= link_to information.name, information_path %></td>
+          <td><%= link_to information.name, title_information_path(title_id: @title.id, id: information.id) %></td>
         </tr>
         <% end %>
       </table>
@@ -17,7 +17,7 @@
         <h4>攻略一覧</h4>
         <% @cheats.each do |cheat| %>
         <tr>
-          <td><%= link_to cheat.name, cheat_path %></td>
+          <td><%= link_to cheat.name, title_cheat_path(title_id: @title.id, id: cheat.id) %></td>
         </tr>
         <% end %>
       </table>
@@ -36,7 +36,7 @@
         <% @characters.each do |character| %>
         <tr>
           <td><%= character.iff_method_i18n %></td>
-          <td><%= link_to character.name, character_path(character.id) %></td>
+          <td><%= link_to character.name, title_character_path(title_id: @title.id, id: character.id) %></td>
         </tr>
         <% end %>
       </table>

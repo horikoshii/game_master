@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <table class="table table-striped">
-    <%= form_with model: @customer, url:customer_path(@customer.id),method: :PATCH do |f| %>
+    <%= form_with model: @customer, url: customer_path(@customer.id),method: :PATCH do |f| %>
     <div class="col-lg-3">
         <div class="user_image">
           <% if @customer.image.attached? %>

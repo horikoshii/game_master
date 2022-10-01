@@ -1,6 +1,7 @@
-<%#= render 'public/titles/title', { title: @title } %>
+<%= render 'public/titles/title', { title: @title } %>
 
 <div class="container pt-3">
+  <%= link_to "新しく掲示板を立てる", new_title_bulletin_board_path(title_id: @title.id) %>
   <div class="row">
      <div class="col-12">
          <% if @bulletin_boards.present? %>

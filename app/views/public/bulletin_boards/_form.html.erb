@@ -1,10 +1,10 @@
-<%= form_with model: bulletin_board, local: true do |f| %>
+<%= form_with model: bulletin_board, url: title_bulletin_boards_path,method: :post do |f| %>
    <div class="form-group">
-     <%= f.label :title %>
+     <%= f.label :掲示板タイトル%>
      <%= f.text_field :title, class: 'form-control' %>
    </div>
    <div class="form-group">
-     <%= f.label :body %>
+     <%= f.label :内容 %>
      <%= f.text_area :body, class: 'form-control', rows: 10 %>
    </div>
 

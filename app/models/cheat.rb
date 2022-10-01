@@ -9,6 +9,7 @@ class Cheat < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   def favorited?(customer)
+    return false if customer.nil?
    favorites.where(customer_id: customer.id).exists?
   end
 
