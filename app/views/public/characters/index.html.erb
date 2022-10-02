@@ -1,4 +1,22 @@
 <%= render 'public/titles/title', { title: @title } %>
-<% @characters.each do |character| %>
-    <%= character.name %>
-<% end %>
+<div class="box" align="center">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <tr>
+          <h4>キャラクター一覧</h4>
+        </tr>
+        <tr>
+          <td>敵味方</td>
+          <td>名前</td>
+        </tr>
+        <% @characters.each do |character| %>
+        <tr>
+          <td><%= character.iff_method_i18n %></td>
+          <td><%= link_to character.name, title_character_path(title_id: @title.id, id: character.id) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

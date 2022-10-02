@@ -1,11 +1,11 @@
 <div class="box" align="center">
 <% if @range == "Character" %>
     <% @characters.each do |character| %>
-        <%= character.name %>
+        <div><%= link_to character.name, title_character_path(title_id: character.title_id, id: character.id) %></div>
     <% end %>
 <% else %>
     <% @cheats.each do |cheat| %>
-        <%= cheat.name %>
+        <div><%= link_to cheat.name, title_cheat_path(title_id: cheat.title_id, id: cheat.id) %></div>
     <% end %>
 <% end %>
 </div>

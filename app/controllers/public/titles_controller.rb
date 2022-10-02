@@ -1,12 +1,12 @@
 class Public::TitlesController < ApplicationController
-  
+
   def show
     @title = Title.find(params[:id])
     # byebug
     @cheats = @title.cheats
-    @characters = @title.characters
+    @characters = @title.characters.page(params[:character_page]).per(5)
     @informations = @title.informations
-    @comments = @title.comments
+    @comments = @title.comments.page(params[:page])
     @comment = Comment.new
   end
 

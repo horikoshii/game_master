@@ -11,7 +11,6 @@ class Public::BulletinBoardsController < ApplicationController
   end
 
   def create
-
     @bulletin_board = current_customer.bulletin_boards.build(bulletin_board_params)
     if @bulletin_board.save
       redirect_to title_bulletin_boards_path, success: t('defaults.message.created', item: BulletinBoard.model_name.human)
