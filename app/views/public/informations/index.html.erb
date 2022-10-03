@@ -5,3 +5,4 @@
     <div class="information"><%= link_to information.name, title_information_path(title_id: @title.id, id: information.id) %></div>
   <% end %>
 </div>
+<%= paginate @informations, :param_name => 'information_page' %>

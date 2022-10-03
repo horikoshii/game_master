@@ -10,8 +10,7 @@
           <tr>
             <td>難易度</td>
             <td>
-              <div id="evaluate_stars">
-              <%= @cheat.evaluation %>
+              <div id="star-rate-<%= @cheat.id %>">
               </div>
             </td>
           </tr>
@@ -30,22 +29,14 @@
         </table>
 
         <script>
-          $('#evaluate_stars').raty({
+          $('#star-rate-<%= @cheat.id %>').raty({
+            size: 36,
+            starOff: "<%= asset_path('star-off.png') %>",
+            starOn: "<%= asset_path('star-on.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            half: true,
             readOnly: true,
-            score: function() {
-              return $(this).attr('data-score');
-            },
-            path: '/assets/'
-
-          });
-
-        </script>
-        <script>
-         $('#evaluate_stars').raty({
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'cheat[evaluation]'
+            score: <%= @cheat.evaluation %>,
           });
         </script>
       </div>

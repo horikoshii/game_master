@@ -37,7 +37,7 @@ class Admin::CheatsController < ApplicationController
   @title = Title.find(params[:title_id])
   @cheat = Cheat.find(params[:id])
   @ally = @title.characters.ally
-  @enemy = @title.characters.enemy
+  @enemys = @title.characters.enemy
  end
 
  def update

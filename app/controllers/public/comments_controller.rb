@@ -4,7 +4,7 @@ class Public::CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     # comment = current_customer.comments.build(comment_params)
     #binding.pry
-    comment.customer_id = current_customer.id
+    comment.customer_id = current_customer.id if customer_signed_in?
     comment.save
     redirect_back(fallback_location: root_path)
   end

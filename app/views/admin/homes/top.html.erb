@@ -1,38 +1,17 @@
-<header class="p-1 mb-1 bg-info text-white">
- <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container">
-   <div class="navbar-brand p-1">
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-     <ul class="navbar-nav ml-auto">
-         <% @platforms.each do |platform| %>
-      <li class="nav-item">
-          <%= link_to(admin_serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
-          <strong> <%= platform.name %> </strong>
-          <% end %>
-         <% end %>
-      </li>
-     </ul>
-    </div>
-   </div>
-  </div>
- </nav>
-</header>
 
-<body>
- <div class="admin_comments">
+<div class="admin_comments">
   <div class="comments">
-   <h4>コメント管理</h4>
-   <%= @comments.each do |comment| %>
-   <div class="comment">
-    <%= comment.customer_id.nil? ? '無名のプレーヤー' : comment.customer.name %>
-    <%= comment.created_at %>
-    <div class="comme"><%= comment.body %>
-    <% if comment.is_valid %>
-     <%= link_to "削除", admin_comment_path(comment), method: :delete %>
+    <h4>コメント管理</h4>
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <%= comment.customer_id.nil? ? '無名のプレーヤー' : comment.customer.name %>
+        <%= comment.created_at %>
+        <div class="comme"><%= comment.body %>
+          <% if comment.is_valid %>
+            <%= link_to "削除", admin_comment_path(comment), method: :delete %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-    </div>
-   </div>
-   <% end %>
   </div>
- </div>
-</body>
+</div>

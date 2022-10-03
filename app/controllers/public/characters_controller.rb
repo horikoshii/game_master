@@ -3,13 +3,13 @@ class Public::CharactersController < ApplicationController
 
   def index
     @title = Title.find(params[:title_id])
-    @characters = @title.characters
+    @characters = @title.characters.page(params[:character_page]).per(10)
   end
 
   def show
     @character = Character.find(params[:id])
     @title = Title.find(params[:title_id])
-    @comments = @character.comments
+    @comments = @character.comments.page(params[:page])
     @comment = Comment.new
   end
 

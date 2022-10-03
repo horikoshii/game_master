@@ -2,7 +2,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer=current_customer
-    @comments = current_customer.comments.all
+    @comments = current_customer.comments.page(params[:page])
   end
 
   def edit

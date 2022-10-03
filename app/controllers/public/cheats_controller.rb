@@ -2,7 +2,7 @@ class Public::CheatsController < ApplicationController
 
   def index
     @title = Title.find(params[:title_id])
-    @cheats = @title.cheats
+    @cheats = @title.cheats.page(params[:cheat_page]).per(10)
   end
 
   def show
@@ -12,7 +12,7 @@ class Public::CheatsController < ApplicationController
     enemy_id = @cheat.enemy_id
     @ally = Character.find(ally_id)
     @enemy = Character.find(enemy_id)
-    @comments = @cheat.comments
+    @comments = @cheat.comments.page(params[:page])
     @comment = Comment.new
   end
 

@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
 
   def top
     @comments = Comment.all
-    @platforms = Platform.all
+    # @platforms = Platform.all
     @titles = Title.all
   end
 

@@ -7,10 +7,10 @@ class Admin::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
-    @informations = @title.informations
-    @characters = @title.characters
-    @cheats = @title.cheats
-    @comments = @title.comments
+    @informations = @title.informations.page(params[:information_page]).per(5)
+    @characters = @title.characters.page(params[:character_page]).per(5)
+    @cheats = @title.cheats.page(params[:cheat_page]).per(5)
+    @comments = @title.comments.page(params[:page])
   end
 
   def new
@@ -21,7 +21,7 @@ class Admin::TitlesController < ApplicationController
     @title = Title.new(title_params)
     @title.save
     #binding.pry
-    redirect_to admin_titles_path(@title.id)
+    redirect_to admin_title_path(@title.id)
   end
 
   def edit

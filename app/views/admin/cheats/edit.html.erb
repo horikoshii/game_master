@@ -22,7 +22,10 @@
 
           <tr>
             <td>ボスキャラクター名</td>
-            <td><%= f.select :enemy_id, options_from_collection_for_select(@enemy, :id, :name) %></td>
+            <%# binding.pry %>
+            <!--<td><%#= f.collection_select :enemy_id, options_from_collection_for_select(@enemys, :id, :name) %></td>-->
+            <%#= f.collection_select :enemy_id Enemy.all, :id, :name %>
+            <td><%= f.collection_select :enemy_id, @enemys, :id, :name %></td>
           </tr>
 
           <tr>
@@ -32,7 +35,7 @@
 
           <tr>
             <td>推奨キャラクター</td>
-            <td><%= f.select :ally_id, options_from_collection_for_select(@ally, :id, :name) %></td>
+            <td><%= f.collection_select :ally_id, @ally, :id, :name %></td>
           </tr>
 
           <tr>
@@ -45,6 +48,7 @@
           starOn: "<%= asset_path('star-on.png') %>",
           starOff: "<%= asset_path('star-off.png') %>",
           starHalf: "<%= asset_path('star-half.png') %>",
+          score: <%= @cheat.evaluation %>,
           scoreName: 'cheat[evaluation]'
           });
         </script>

@@ -2,7 +2,7 @@ class Cheat < ApplicationRecord
   belongs_to :title
 
   has_many :characters , dependent: :destroy
-  has_many :tags, dependent: :destroy
+  # has_many :tags, dependent: :destroy
   has_many :comments, dependent: :destroy
   #belongs_to :information
   #belongs_to :customer
