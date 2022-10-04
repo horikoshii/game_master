@@ -1,6 +1,6 @@
 <%= render 'public/titles/title', { title: @title } %>
 
-<% content_for(:title, @bulletin_board.title) %>
+<% content_for(:name, @bulletin_board.name) %>
 <div class="container pt-5">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
@@ -9,7 +9,7 @@
         <div class="card-body">
           <div class='row'>
             <div class='col-md-12'>
-              <h3 class="d-inline"><%= @bulletin_board.title %></h3>
+              <h3 class="d-inline"><%= @bulletin_board.name %></h3>
               <%= render 'crud_menus', bulletin_board: @bulletin_board %>
               <ul class="list-inline">
                 <li class="list-inline-item">by <%= @bulletin_board.customer.name %></li>

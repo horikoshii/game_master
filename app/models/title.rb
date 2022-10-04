@@ -5,4 +5,5 @@ class Title < ApplicationRecord
   has_many :cheats, dependent: :destroy
   has_many :characters, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bulletin_boards, dependent: :destroy
 end

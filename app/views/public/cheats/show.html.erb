@@ -48,21 +48,22 @@
       <a href="#">
         <% if @cheat.favorited?(current_customer) %>
          <%= link_to title_cheat_favorite_path(cheat_id: @cheat.id), method: :delete do %>
-         <span style="color:#FF0000">&#9829;︎</span>
+         <div class="icon">
+           <span class="heart" style="color:#FF0000"><i class="fas fa-heart"></i>︎</span>
+         </div>
          <% end %>
         <% else %>
          <%= link_to title_cheat_favorites_path(cheat_id: @cheat.id), method: :post do %>
-         <span>&#9825;</span>
+         <div class="icon">
+           <span class="heart"><i class="far fa-heart"></i></span>
+         </div>
          <% end %>
         <% end %>
       </a>
     </span>
     <% end %>
-
-    <script src="js/jquery.min.js"></script>
-
-    <script src="js/script.js"></script>
   </div>
+  
   <%= render 'public/comments/form_cheat', { cheat: @cheat, comment: @comment } %>
 
   <%= render 'public/comments/comments', { comments: @comments } %>

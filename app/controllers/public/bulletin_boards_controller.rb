@@ -2,7 +2,7 @@ class Public::BulletinBoardsController < ApplicationController
 
   def index
     @title = Title.find(params[:title_id])
-    @bulletin_boards = BulletinBoard.all.includes(:customer).order(created_at: :desc)
+    @bulletin_boards = @title.bulletin_boards.includes(:customer).order(created_at: :desc)
   end
 
   def new
@@ -12,9 +12,12 @@ class Public::BulletinBoardsController < ApplicationController
 
   def create
     @bulletin_board = current_customer.bulletin_boards.build(bulletin_board_params)
+    @bulletin_board.title_id = params[:title_id]
     if @bulletin_board.save
       redirect_to title_bulletin_boards_path, success: t('defaults.message.created', item: BulletinBoard.model_name.human)
     else
+      @title = Title.find(params[:title_id])
+      @bulletin_board = BulletinBoard.new
       flash.now['danger'] = t('defaults.message.not_created', item: BulletinBoard.model_name.human)
       render :new
     end
@@ -31,6 +34,6 @@ class Public::BulletinBoardsController < ApplicationController
   private
 
   def bulletin_board_params
-    params.require(:bulletin_board).permit(:title, :body)
+    params.require(:bulletin_board).permit(:name, :body)
   end
 end
