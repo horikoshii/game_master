@@ -27,8 +27,7 @@ class Public::BulletinBoardsController < ApplicationController
     @title = Title.find(params[:title_id])
     @bulletin_board = BulletinBoard.find(params[:id])
     @comment = Comment.new
-    #byebug
-    @comments = @bulletin_board.comments.includes(:customer).order(created_at: :desc)
+    @comments = @bulletin_board.comments.includes(:customer).order(created_at: :desc).page(params[:page])
   end
 
   private

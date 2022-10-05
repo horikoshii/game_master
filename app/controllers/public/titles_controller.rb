@@ -2,7 +2,6 @@ class Public::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
-    # byebug
     @cheats = @title.cheats.page(params[:cheat_page]).per(5)
     @characters = @title.characters.page(params[:character_page]).per(5)
     @informations = @title.informations.page(params[:information_page]).per(5)
