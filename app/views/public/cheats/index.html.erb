@@ -1,12 +1,18 @@
 <%= render 'public/titles/title', { title: @title } %>
-<div class="box" align="center">
-  <h4>攻略一覧</h4>
+<div class="box">
+  <h4 class="cheat_title">攻略一覧</h4>
   <div>
-    <% @cheats.each do |cheat| %>
-    <div class="box">
-      <%= link_to cheat.name, title_cheat_path(title_id: @title.id, id: cheat.id) %>
-    </div>
-    <% end %>
+    <table class="table table-striped">
+      <% @cheats.each do |cheat| %>
+        <tr>
+          <td>
+            <div class="cheat_box">
+              <%= link_to cheat.name, title_cheat_path(title_id: @title.id, id: cheat.id) %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <%= paginate @cheats, :param_name => 'cheat_page' %>
 </div>
