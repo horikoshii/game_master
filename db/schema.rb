@@ -110,10 +110,6 @@ ActiveRecord::Schema.define(version: 2022_10_04_120954) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_valid", default: true, null: false
-    t.index ["bulletin_board_id"], name: "index_comments_on_bulletin_board_id"
-    t.index ["cheat_id"], name: "index_comments_on_cheat_id"
-    t.index ["customer_id"], name: "index_comments_on_customer_id"
-    t.index ["title_id"], name: "index_comments_on_title_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -182,10 +178,6 @@ ActiveRecord::Schema.define(version: 2022_10_04_120954) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bulletin_boards", "customers"
   add_foreign_key "cheats", "customers"
-  add_foreign_key "comments", "bulletin_boards"
-  add_foreign_key "comments", "cheats"
-  add_foreign_key "comments", "customers"
-  add_foreign_key "comments", "titles"
   add_foreign_key "favorites", "cheats"
   add_foreign_key "favorites", "customers"
   add_foreign_key "titles", "customers"
