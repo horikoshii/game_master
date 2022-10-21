@@ -6,8 +6,11 @@ class Admin::PlatformsController < ApplicationController
 
   def create
     @platform = Platform.new(platform_params)
-    @platform.save
-    redirect_to admin_path
+    if @platform.save
+      redirect_to admin_path
+    else
+      render :new
+    end  
   end
 
   private

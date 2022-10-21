@@ -13,8 +13,11 @@ class Admin::CharactersController < ApplicationController
  def create
     @character = Character.new(character_params)
     @character.title_id = params[:title_id]
-    @character.save
+    if @character.save
     redirect_to admin_title_character_path(title_id: @character.title_id, id: @character.id)
+    else
+     redirect_back fallback_location: root_path
+    end
  end
 
  def show
@@ -36,7 +39,7 @@ class Admin::CharactersController < ApplicationController
  private
 
   def character_params
-    params.require(:character).permit(:name, :skill, :skill_detail, :attribution_method, :iff_method, tag_ids: [])
+    params.require(:character).permit(:name, :skill, :skill_detail, :attribution_method, :iff_method)
   end
 
 end

@@ -4,6 +4,11 @@ class Cheat < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :name, presence: true
+  validates :enemy_id, presence: true
+  validates :cheat_detail, presence: true
+  validates :ally_id, presence: true
+
   def favorited?(customer)
     return false if customer.nil?
    favorites.where(customer_id: customer.id).exists?

@@ -16,8 +16,11 @@ class Admin::CheatsController < ApplicationController
  def create
     @cheat = Cheat.new(cheat_params)
     @cheat.title_id = params[:title_id]
-    @cheat.save
+   if @cheat.save
     redirect_to admin_title_cheat_path(title_id: @cheat.title_id, id: @cheat.id)
+   else
+    redirect_back fallback_location: root_path
+   end
  end
 
  def show
