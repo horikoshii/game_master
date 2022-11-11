@@ -21,15 +21,18 @@
 </header>
 
 <div class="container">
- <h2><%= @platform.name %>一覧</h2>
- <div class="row">
-  <div class="col-lg-10">
-   <div class="row">
-    <% @titles.each do |title| %>
-    <div class="col-lg-3">
-     <p><%= link_to title.name,admin_title_path(title.id) %></p>
-    </div>
-    <% end %>
+ <h2>
+  <p><%= @platform.name %>一覧</p>
+  <p><%= button_to "編集", edit_admin_platform_path(@platform.id)%></p>
+ </h2>
+  <div class="row">
+   <div class="col-lg-10">
+    <div class="row">
+     <% @titles.each do |title| %>
+     <div class="col-lg-3">
+      <p><%= link_to title.name,admin_title_path(title.id) %></p>
+     </div>
+     <% end %>
+   </div>
   </div>
- </div>
 </div>

@@ -53,7 +53,7 @@ get 'finder' => "finders#finder"
     end
     resources :customers, only: [:index,:show]
     resources :admins
-    resources :platforms, only: [:new,:create,:edit,:update]
+    resources :platforms, only: [:new,:create,:edit,:update,:destroy]
     resources :tags
     resources :comments
   end

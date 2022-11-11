@@ -10,7 +10,26 @@ class Admin::PlatformsController < ApplicationController
       redirect_to admin_path
     else
       render :new
-    end  
+    end
+  end
+
+  def edit
+    @platform = Platform.find(params[:id])
+  end
+
+  def update
+    @platform = Platform.find(params[:id])
+    if @platform.update
+      redirect_to admin_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @platform = Platform.find(params[:id])
+    @platform.destroy
+    redirect_to admin_path
   end
 
   private

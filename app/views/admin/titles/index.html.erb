@@ -1,3 +1,23 @@
+<header class="p-1 mb-1 bg-info text-white">
+ <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+   <div class="navbar-brand p-1">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+     <ul class="navbar-nav ml-auto">
+         <% @platforms.each do |platform| %>
+      <li class="nav-item">
+          <%= link_to(admin_serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
+          <strong> <%= platform.name %> </strong>
+          <% end %>
+         <% end %>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </nav>
+</header>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
