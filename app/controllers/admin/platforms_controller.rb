@@ -13,13 +13,19 @@ class Admin::PlatformsController < ApplicationController
     end
   end
 
+  def index
+    @platforms = Platform.all
+    @platform = Platform.new
+
+  end
+
   def edit
     @platform = Platform.find(params[:id])
   end
 
   def update
     @platform = Platform.find(params[:id])
-    if @platform.update
+    if @platform.update(platform_params)
       redirect_to admin_path
     else
       render :edit

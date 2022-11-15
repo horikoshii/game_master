@@ -13,7 +13,7 @@
           </ul>
         <% end %>
 
-        <%= form_with model: @platform, url: admin_platforms_path,method: :patch do |f| %>
+        <%= form_with model: @platform, url: admin_platform_path(@platform.id),method: :patch do |f| %>
         <table class="table table-striped">
           <tr>
             <td>プラットフォーム名</td>
@@ -22,7 +22,6 @@
 
           <tr>
            <td><%= f.submit '更新' %></td>
-           <td><%= button_to "削除", admin_platform_path, method: :delete %></td>
           </tr>
         </table>
         <% end %>

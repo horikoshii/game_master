@@ -4,15 +4,13 @@
    <div class="navbar-brand p-1">
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-       <tbody>
-        <% @platforms.each do |platform| %>
-         <%= link_to(admin_serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
-         <strong> <%= @platform.name %> </strong>
+      <% @platforms.each do |platform| %>
+       <li class="nav-item">
+         <%= link_to(serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
+          <strong> <%= platform.name %> </strong>
          <% end %>
-        <% end %>
-       </tbody>
-      </li>
+       </li>
+      <% end %>
      </ul>
     </div>
    </div>
@@ -21,10 +19,11 @@
 </header>
 
 <div class="container">
- <h2>
-  <p><%= @platform.name %>一覧</p>
-  <p><%= button_to "編集", edit_admin_platform_path(@platform.id)%></p>
- </h2>
+  <h2>
+   <%= @platform.name %>一覧
+   <h5><%= button_to "編集", edit_admin_platform_path(@platform.id), method: :get %></h5>
+  </h2>
+
   <div class="row">
    <div class="col-lg-10">
     <div class="row">

@@ -4,13 +4,13 @@
    <div class="navbar-brand p-1">
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
-         <% @platforms.each do |platform| %>
-      <li class="nav-item">
-          <%= link_to(serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
+      <% @platforms.each do |platform| %>
+       <li class="nav-item">
+         <%= link_to(serch_path(platform_id: platform.id),  class: 'nav-link text-white') do %>
           <strong> <%= platform.name %> </strong>
-          <% end %>
          <% end %>
-      </li>
+       </li>
+      <% end %>
      </ul>
     </div>
    </div>

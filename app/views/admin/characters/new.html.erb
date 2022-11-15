@@ -18,10 +18,15 @@
         <table class="table table-striped">
 
           <tr>
-            <td><%= f.radio_button :iff_method, Character.iff_methods.key(0) %>
-            <%= f.label :iff_method, Character.iff_methods_i18n[:enemy] %></td>
-            <td><%= f.radio_button :iff_method, Character.iff_methods.key(1) %>
-            <%= f.label :iff_method, Character.iff_methods_i18n[:ally]%></td>
+            <td>
+              <%= f.radio_button :iff_method, Character.iff_methods.key(0) %>
+              <%= f.label :iff_method, Character.iff_methods_i18n[:enemy], value: Character.iff_methods.key(0) %>
+            </td>
+            
+            <td>
+              <%= f.radio_button :iff_method, Character.iff_methods.key(1) %>
+              <%= f.label :iff_method, Character.iff_methods_i18n[:ally], value: Character.iff_methods.key(1)%>
+            </td>
           </tr>
           <tr>
             <td>キャラクター名</td>
@@ -31,15 +36,15 @@
             <td><h8>属性</h8></td>
             <td>
               <%= f.radio_button :attribution_method, Character.attribution_methods.key(0) %>
-              <%= f.label :attribution_method, Character.attribution_methods_i18n[:fire] %>
+              <%= f.label :attribution_method, Character.attribution_methods_i18n[:fire], value: Character.attribution_methods.key(0) %>
             </td>
             <td>
               <%= f.radio_button :attribution_method, Character.attribution_methods.key(1) %>
-              <%= f.label :attribution_method, Character.attribution_methods_i18n[:water] %>
+              <%= f.label :attribution_method, Character.attribution_methods_i18n[:water], value: Character.attribution_methods.key(1) %>
             </td>
             <td>
               <%= f.radio_button :attribution_method, Character.attribution_methods.key(2) %>
-              <%= f.label :attribution_method, Character.attribution_methods_i18n[:nature] %>
+              <%= f.label :attribution_method, Character.attribution_methods_i18n[:nature], value: Character.attribution_methods.key(2) %>
             </td>
           </tr>
           <tr>

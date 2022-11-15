@@ -9,15 +9,15 @@
           <tr>
             <td>
               <%= f.radio_button :type_method, Information.type_methods.key(0) %>
-              <%= f.label :type_method, Information.type_methods_i18n[:intelligence] %>
+              <%= f.label :type_method, Information.type_methods_i18n[:intelligence], value: Information.type_methods.key(0) %>
             </td>
             <td>
               <%= f.radio_button :type_method, Information.type_methods.key(1) %>
-              <%= f.label :type_method, Information.type_methods_i18n[:new_character]%>
+              <%= f.label :type_method, Information.type_methods_i18n[:new_character], value: Information.type_methods.key(1) %>
             </td>
             <td>
               <%= f.radio_button :type_method, Information.type_methods.key(2) %>
-              <%= f.label :type_method, Information.type_methods_i18n[:event]%>
+              <%= f.label :type_method, Information.type_methods_i18n[:event], value: Information.type_methods.key(2) %>
             </td>
           </tr>
           <tr>

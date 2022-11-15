@@ -29,13 +29,19 @@
                 <% if admin_signed_in? %>
 
                  <li class="nav-item">
+                  <%= link_to(admin_path, class: 'nav-link text-white') do %>
+                   <strong> コメント管理 </strong>
+                  <% end %>
+                 </li>
+
+                 <li class="nav-item">
                   <%= link_to(admin_titles_path, class: 'nav-link text-white') do %>
                    <strong> タイトル </strong>
                   <% end %>
                  </li>
 
                  <li class="nav-item">
-                  <%= link_to(new_admin_platform_path, class: 'nav-link text-white') do %>
+                  <%= link_to(admin_platforms_path, class: 'nav-link text-white') do %>
                    <strong> プラットフォーム </strong>
                   <% end %>
                  </li>
