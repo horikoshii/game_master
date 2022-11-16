@@ -7,9 +7,9 @@ class Admin::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
-    @informations = @title.informations.page(params[:information_page]).per(5)
-    @characters = @title.characters.page(params[:character_page]).per(5)
-    @cheats = @title.cheats.page(params[:cheat_page]).per(5)
+    @informations = @title.informations.page(params[:information_page]).per(5).order(created_at: :desc)
+    @characters = @title.characters.page(params[:character_page]).per(5).order(created_at: :desc)
+    @cheats = @title.cheats.page(params[:cheat_page]).per(5).order(created_at: :desc)
     @comments = @title.comments.page(params[:page])
   end
 

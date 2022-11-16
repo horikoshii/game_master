@@ -2,9 +2,9 @@ class Public::TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
-    @cheats = @title.cheats.page(params[:cheat_page]).per(5)
-    @characters = @title.characters.page(params[:character_page]).per(5)
-    @informations = @title.informations.page(params[:information_page]).per(5)
+    @cheats = @title.cheats.page(params[:cheat_page]).per(5).order(created_at: :desc)
+    @characters = @title.characters.page(params[:character_page]).per(5).order(created_at: :desc)
+    @informations = @title.informations.page(params[:information_page]).per(5).order(created_at: :desc)
     @comments = @title.comments.where(character: nil, cheat: nil).page(params[:page])
     @comment = Comment.new
   end

@@ -2,7 +2,7 @@
   <td>
     <h3 class="small"><%= comment.customer_id.nil?? '無名のプレーヤー' : comment.customer.name %></h3>
     <div id="js-comment-<%= comment.id %>">
-      <%= comment.created_at %>
+      <%= l comment.created_at %>
       <%= simple_format(comment.body) %>
       <% flash.each do |message_type, message| %>
       　<%= message %>

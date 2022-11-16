@@ -8,6 +8,7 @@
         <% @informations.each do |information| %>
         <tr>
           <td><%= link_to information.name, title_information_path(title_id: @title.id, id: information.id) %></td>
+          <td><%= l information.created_at %></td>
         </tr>
         <% end %>
       </table>
@@ -19,6 +20,7 @@
         <% @cheats.each do |cheat| %>
         <tr>
           <td><%= link_to cheat.name, title_cheat_path(title_id: @title.id, id: cheat.id) %></td>
+          <td><%= l cheat.created_at %></td>
         </tr>
         <% end %>
       </table>
@@ -39,6 +41,7 @@
         <tr>
           <td><%= character.iff_method_i18n %></td>
           <td><%= link_to character.name, title_character_path(title_id: @title.id, id: character.id) %></td>
+          <td><%= l character.created_at %></td>
         </tr>
         <% end %>
       </table>

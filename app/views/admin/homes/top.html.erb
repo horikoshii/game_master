@@ -5,7 +5,7 @@
     <% @comments.each do |comment| %>
       <div class="comment">
         <%= comment.customer_id.nil? ? '無名のプレーヤー' : comment.customer.name %>
-        <%= comment.created_at %>
+        <%= l comment.created_at %>
         <div class="comme"><%= comment.body %>
           <% if comment.is_valid %>
             <%= link_to "削除", admin_comment_path(comment), method: :delete %>

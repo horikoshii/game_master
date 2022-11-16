@@ -21,6 +21,7 @@
         <% @informations.each do |information| %>
         <tr>
           <td><%= link_to information.name, admin_title_information_path(@title, information) %></td>
+          <td><%= l information.created_at %></td>
         </tr>
         <% end %>
       </table>
@@ -32,6 +33,7 @@
         <% @cheats.each do |cheat| %>
         <tr>
           <td><%= link_to cheat.name, admin_title_cheat_path(@title, cheat) %></td>
+          <td><%= l cheat.created_at %></td>
         </tr>
         <% end %>
       </table>
@@ -47,11 +49,12 @@
         <tr>
           <td>敵味方</td>
           <td>名前</td>
-        </tr>
+        </tr>p
         <% @characters.each do |character| %>
         <tr>
           <td><%= character.iff_method_i18n %></td>
           <td><%= link_to character.name, admin_title_character_path(@title, character.id) %></td>
+          <td><%= l character.created_at %></td>
         </tr>
         <% end %>
       </table>

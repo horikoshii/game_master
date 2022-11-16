@@ -13,3 +13,6 @@ ja:
           fire: "火"
           water: "水"
           nature: "木"
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
