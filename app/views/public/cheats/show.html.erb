@@ -41,6 +41,7 @@
             score: <%= @cheat.evaluation %>,
           });
         </script>
+      </div>
     </div>
 
     <% if current_customer.present? %>
@@ -63,7 +64,7 @@
     </span>
     <% end %>
   </div>
-  
+
   <%= render 'public/comments/form_cheat', { cheat: @cheat, comment: @comment } %>
 
   <%= render 'public/comments/comments', { comments: @comments } %>
