@@ -1,0 +1,19 @@
+<% if current_customer.present? %>
+  <span id="favorite">
+    <a href="#">
+      <% if @cheat.favorited?(current_customer) %>
+       <%= link_to title_cheat_favorite_path(cheat_id: @cheat.id), method: :delete, remote: true do %>
+       <div class="icon">
+         <span class="heart" style="color:#FF0000"><i class="fas fa-heart"></i>︎</span>
+       </div>
+       <% end %>
+      <% else %>
+       <%= link_to title_cheat_favorites_path(cheat_id: @cheat.id), method: :post, remote: true do %>
+       <div class="icon">
+         <span class="heart"><i class="far fa-heart"></i></span>
+       </div>
+       <% end %>
+      <% end %>
+    </a>
+  </span>
+<% end %>
