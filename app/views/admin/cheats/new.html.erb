@@ -4,6 +4,16 @@
   <div style="text-align:center;">
     <div class="row">
       <div class="col-lg-12">
+
+        <% if @cheat.errors.any? %>
+          <%= @cheat.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @cheat.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
         <%= form_with model: @cheat, url: admin_title_cheats_path ,method: :post do |f| %>
         <table class="table table-striped">
           <tr>
