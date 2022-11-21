@@ -3,6 +3,16 @@
   <h4>最新情報登録</h4>
   <div style="text-align:center;">
     <div class="row">
+
+      <% if @information.errors.any? %>
+        <%= @information.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @information.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
       <div class="col-lg-12">
         <%= form_with model: @information, url: admin_title_informations_path,method: :post do |f| %>
         <table class="table table-striped">
