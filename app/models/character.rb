@@ -5,8 +5,8 @@ class Character < ApplicationRecord
   enum iff_method: { enemy: 0, ally: 1 }
   enum attribution_method: { fire: 0, water: 1, nature: 2 }
 
-  validates :iff_method, inclusion: {in: [0, 1]}
-  validates :attribution_method, inclusion: {in: [0, 1, 2],}
+  validates :iff_method, presence: true
+  validates :attribution_method, presence: true
   validates :name, presence: true
   validates :skill, presence: true
   validates :skill_detail, presence: true

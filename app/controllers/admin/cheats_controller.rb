@@ -19,7 +19,7 @@ class Admin::CheatsController < ApplicationController
    if @cheat.save
     redirect_to admin_title_cheat_path(title_id: @cheat.title_id, id: @cheat.id)
    else
-    redirect_to new_admin_title_cheat_path(@cheat.title_id)
+    redirect_back fallback_location: root_path
    end
  end
 

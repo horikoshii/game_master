@@ -13,10 +13,10 @@ class Admin::CharactersController < ApplicationController
  def create
     @character = Character.new(character_params)
     @character.title_id = params[:title_id]
-    if @character.save!
+    if @character.save
      redirect_to admin_title_character_path(title_id: @character.title_id, id: @character.id)
     else
-     render :new
+     redirect_back fallback_location: root_path
     end
  end
 

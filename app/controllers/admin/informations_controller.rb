@@ -8,7 +8,7 @@ class Admin::InformationsController < ApplicationController
   def create
     @information = Information.new(information_params)
     @information.title_id = params[:title_id]
-    if @information.save!
+    if @information.save
       redirect_to admin_title_information_path(title_id: @information.title_id, id: @information.id)
     else
       redirect_back fallback_location: root_path
