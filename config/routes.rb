@@ -46,7 +46,7 @@ get 'finder' => "finders#finder"
   namespace :admin do
     get "admin/top" => "titles#serch",as: "serch"
     resources :titles do
-      resources :cheats, only: [:index,:new,:create,:edit,:update,:show]
+      resources :cheats, only: [:index,:new,:create,:edit,:update,:show,:destroy]
       resources :characters, only: [:index,:new,:create,:edit,:update,:show]
       resources :informations, only: [:index,:new,:create,:edit,:update,:show]
       resources :bulletin_boards, only: [:index,:show]

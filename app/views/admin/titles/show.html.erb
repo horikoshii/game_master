@@ -38,6 +38,7 @@
         <% end %>
       </table>
       <%= paginate @cheats, :param_name => 'cheat_page' %>
+      <%= link_to "もっと表示させる", admin_title_cheats_path(@title) %>
     </div>
   </div>
   <div class="row">

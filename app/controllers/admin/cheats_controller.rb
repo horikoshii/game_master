@@ -2,8 +2,8 @@ class Admin::CheatsController < ApplicationController
 
 
  def index
-  @title = Title.find(params[:title_id])
-  @cheats = Cheat.search(params[:search])
+   @title = Title.find(params[:title_id])
+   @cheats = @title.cheats.page(params[:cheat_page]).per(10)
  end
 
  def new
@@ -48,6 +48,12 @@ class Admin::CheatsController < ApplicationController
   @cheat = Cheat.find(params[:id])
   @cheat.update(cheat_params)
   redirect_to admin_title_cheat_path
+ end
+
+ def destroy
+   @cheat = Cheat.find(params[:id])
+   @cheat.destroy
+   redirect_to admin_title_cheats_path
  end
 
  private

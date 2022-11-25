@@ -1,0 +1,20 @@
+<%= render 'admin/titles/title', { title: @title } %>
+<div class="box">
+  <h4 class="cheat_title">攻略一覧</h4>
+  <div>
+    <table class="table table-striped">
+      <% @cheats.each do |cheat| %>
+        <tr>
+          <td>
+            <div class="cheat_box">
+              <div><%= link_to cheat.name, admin_title_cheat_path(title_id: @title.id, id: cheat.id) %></div>
+              <div class="button"><%= button_to "編集", edit_admin_title_cheat_path(title_id: @title.id, id: cheat.id), method: :get %></div>
+              <div class="button"><%= button_to "削除", admin_title_cheat_path(title_id: @title.id, id: cheat.id), method: :delete, data: { confirm: "削除しますか？"} %></div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <%= paginate @cheats, :param_name => 'cheat_page' %>
+</div>
