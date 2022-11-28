@@ -5,7 +5,8 @@ class Admin::CheatsController < ApplicationController
    @title = Title.find(params[:title_id])
    @cheats = @title.cheats.page(params[:cheat_page]).per(10)
  end
-
+ 
+ 
  def new
   @title = Title.find(params[:title_id])
      @cheat = Cheat.new(title_id: @title)
