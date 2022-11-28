@@ -1,0 +1,20 @@
+<%= render 'admin/titles/title', { title: @title } %>
+<div class="box">
+  <h4 class="information_title">最新情報</h4>
+  <div>
+    <table class="table table-striped">
+      <% @informations.each do |information| %>
+        <tr>
+          <td>
+            <div class="information_box">
+              <div class="information"><%= link_to information.name, title_information_path(title_id: @title.id, id: information.id) %></div>
+            </div>
+          </td>
+          <td><%= button_to "編集", edit_admin_title_information_path(title_id: @title.id, id: information.id), method: :get %></td>
+          <td><%= button_to "削除", admin_title_information_path(title_id: @title.id, id: information.id), method: :delete, data: { confirm: "削除しますか？"} %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <%= paginate @informations, :param_name => 'information_page' %>
+</div>
