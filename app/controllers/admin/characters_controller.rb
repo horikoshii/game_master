@@ -1,8 +1,8 @@
 class Admin::CharactersController < ApplicationController
 
  def index
-  @title = Title.find(params[:title_id])
-  @characters = Character.search(params[:search])
+   @title = Title.find(params[:title_id])
+   @characters = @title.characters.page(params[:character_page]).per(10)
  end
 
  def new
@@ -34,6 +34,12 @@ class Admin::CharactersController < ApplicationController
   @character = Character.find(params[:id])
   @character.update(character_params)
   redirect_to admin_title_character_path
+ end
+
+ def destroy
+   @character = Character.find(params[:id])
+   @cha.destroy
+   redirect_to admin_title_characters_path
  end
 
  private

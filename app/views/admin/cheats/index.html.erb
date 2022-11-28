@@ -5,13 +5,9 @@
     <table class="table table-striped">
       <% @cheats.each do |cheat| %>
         <tr>
-          <td>
-            <div class="cheat_box">
-              <div><%= link_to cheat.name, admin_title_cheat_path(title_id: @title.id, id: cheat.id) %></div>
-              <div class="button"><%= button_to "編集", edit_admin_title_cheat_path(title_id: @title.id, id: cheat.id), method: :get %></div>
-              <div class="button"><%= button_to "削除", admin_title_cheat_path(title_id: @title.id, id: cheat.id), method: :delete, data: { confirm: "削除しますか？"} %></div>
-            </div>
-          </td>
+          <td><%= link_to cheat.name, admin_title_cheat_path(title_id: @title.id, id: cheat.id) %></td>
+          <td><%= button_to "編集", edit_admin_title_cheat_path(title_id: @title.id, id: cheat.id), method: :get %></td>
+          <td><%= button_to "削除", admin_title_cheat_path(title_id: @title.id, id: cheat.id), method: :delete, data: { confirm: "削除しますか？"} %></td>
         </tr>
       <% end %>
     </table>

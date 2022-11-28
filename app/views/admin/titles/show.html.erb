@@ -25,6 +25,7 @@
         </tr>
         <% end %>
       </table>
+      <%= link_to "もっと表示させる", admin_title_informations_path(@title) %>
       <%= paginate @informations, :param_name => 'information_page' %>
     </div>
     <div class="col-lg-5">
@@ -59,6 +60,7 @@
         </tr>
         <% end %>
       </table>
+      <%= link_to "もっと表示させる", admin_title_characters_path(@title) %>
       <%= paginate @characters, :param_name => 'character_page' %>
     </div>
   </div>

@@ -1,4 +1,9 @@
 class Admin::InformationsController < ApplicationController
+  
+  def index
+    @title = Title.find(params[:title_id])
+    @informations = @title.informations.page(params[:information_page]).per(10)
+  end
 
   def new
     @title = Title.find(params[:title_id])
@@ -29,6 +34,12 @@ class Admin::InformationsController < ApplicationController
   def show
     @title = Title.find(params[:title_id])
     @information = Information.find(params[:id])
+  end
+  
+  def destroy
+   @information = Information.find(params[:id])
+   @information.destroy
+   redirect_to admin_title_informations_path
   end
 
   private

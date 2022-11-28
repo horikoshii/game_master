@@ -1,0 +1,23 @@
+<%= render 'admin/titles/title', { title: @title } %>
+<div class="box">
+  <h4 class="character_title">キャラクター一覧</h4>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <tr>
+          <td>敵味方</td>
+          <td>名前</td>
+        </tr>
+        <% @characters.each do |character| %>
+        <tr>
+          <td><%= character.iff_method_i18n %></td>
+          <td><%= link_to character.name, title_character_path(title_id: @title.id, id: character.id) %></td>
+          <td><%= button_to "編集", edit_admin_title_character_path(title_id: @title.id, id: character.id), method: :get %></td>
+          <td><%= button_to "削除", admin_title_character_path(title_id: @title.id, id: character.id), method: :delete, data: { confirm: "削除しますか？"} %></td>
+        </tr>
+        <% end %>
+      </table>
+      <%= paginate @characters, :param_name => 'character_page' %>
+    </div>
+  </div>
+</div>
