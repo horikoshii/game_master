@@ -1,5 +1,19 @@
 class Public::TitlesController < ApplicationController
 
+  def top
+    @platforms = Platform.all
+    @titles = Title.all
+  end
+
+  def serch
+    @platforms = Platform.all
+    @titles = Title.all
+    if params[:platform_id]
+      @platform = Platform.find(params[:platform_id])
+      @titles = @platforms.titles
+    end
+  end
+
   def show
     @title = Title.find(params[:id])
     @cheats = @title.cheats.page(params[:cheat_page]).per(5).order(created_at: :desc)
