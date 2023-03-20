@@ -2,7 +2,6 @@ class Information < ApplicationRecord
 
   belongs_to :title
 
-  validates :type_method, inclusion: {in: [1, 2]}
   validates :name, presence: true
   validates :information_detail, presence: true
 
