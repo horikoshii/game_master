@@ -1,17 +1,1 @@
 
-<div class="admin_comments">
-  <div class="comments">
-    <h4>コメント管理</h4>
-    <% @comments.each do |comment| %>
-      <div class="comment">
-        <%= comment.customer_id.nil? ? '無名のプレーヤー' : comment.customer.name %>
-        <%= l comment.created_at %>
-        <div class="comme"><%= comment.body %>
-          <% if comment.is_valid %>
-            <%= link_to "削除", admin_comment_path(comment), method: :delete %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
